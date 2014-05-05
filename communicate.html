@@ -18,12 +18,14 @@
 
     <!-- Include the compiled Ratchet JS -->
     <script src="bower_components/ratchet/dist/js/ratchet.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/ratchet/js/push.js"></script>
   </head>
   <body>
 
     <!-- Make sure all your bars are the first things in your <body> -->
     <header class="bar bar-nav">
-    	<a class="btn btn-link btn-nav pull-left" href="index.html">
+    	<a class="btn btn-link btn-nav pull-left" href="index.html" data-transition="slide-out">
 		    <span class="icon icon-left-nav"></span>
 		    Back
 		  </a>
@@ -32,8 +34,18 @@
 
     <div class="content">
     	<div class="content-padded communicate">
+    		<img class="img" src="http://upload.wikimedia.org/wikipedia/commons/0/06/Cabo_San_Lucas_Los_Arcos_3.jpg" />
+    		<div class="chat_container">
+					<div class="bubble">
+						Check out Cabo!
+					</div>	
+					<div class="bubble bubble--alt">
+						That's awesome!!
+					</div>
+				</div>
 	    	<form  class="communicate_form">
 				  <input type="text" placeholder="type something...">
+				  <button class="btn btn-positive btn-block">Send</button>
 				</form>
 			</div>
     </div>
