@@ -18,12 +18,35 @@
     <!-- Include the compiled Ratchet JS -->
     <script src="bower_components/ratchet/dist/js/ratchet.js"></script>
 
+    <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/ratchet/js/push.js"></script>
+
+    <style>
+      #camera-button {
+        opacity: 0.01;
+        position: absolute;
+        right: 0;
+        margin-right: -200px;
+        z-index: 100;
+        margin-top: 8px;
+      }
+
+      .send-friend-name button {
+        opacity: 0;
+      }
+      .send-friend-name.selected button {
+        opacity: 1;
+      }
+    </style>
   </head>
   <body>
 
     <!-- Make sure all your bars are the first things in your <body> -->
     <header class="bar bar-nav">
+      <form>
+        <input id="camera-button" type="file" accept="image/*;capture=camera"></input>
+        <a id="camera-link" class="icon icon-compose pull-right"></a>
+      </form>
       <h1 class="title">How Was Your Day</h1>
     </header>
 
@@ -65,5 +88,23 @@
 			</ul>
     </div>
 
+    <script type="text/javascript">
+      // $("#camera-link").click(function() {
+      //   $("#camera-button").click();
+      // });
+
+      $("#camera-button").click(function() {
+        PUSH({ url: 'camera.html', transition: 'slide-in'});
+      });
+
+      $("body").delegate(".send-friend-name", "click", function() {
+        //debugger;
+        if ($(this).hasClass("selected")) {
+          $(this).removeClass("selected");
+        } else {
+          $(this).addClass("selected");
+        }
+      });
+    </script>
   </body>
 </html>
