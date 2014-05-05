@@ -17,6 +17,8 @@
 
     <!-- Include the compiled Ratchet JS -->
     <script src="bower_components/ratchet/dist/js/ratchet.js"></script>
+
+    <script src="bower_components/ratchet/js/push.js"></script>
   </head>
   <body>
 
@@ -27,7 +29,40 @@
 
     <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
     <div class="content">
-      <p class="content-padded">Welcome to How Was Your Day!</p>
+      <ul class="table-view">
+			  <li class="table-view-cell">
+			  	<a class="navigate-right" href="communicate.html" data-transition="slide-in">
+			    	<span class="media-object pull-left icon icon-star-filled"></span>
+			      <div class="media-body">
+			        Andy Mai
+			      </div>
+			    </a>
+			  </li>
+			  <li class="table-view-cell">
+			  	<a class="navigate-right">
+			    	<span class="media-object pull-left icon icon-star"></span>
+			      <div class="media-body">
+			        Stanley Tang
+			      </div>
+			    </a>
+			  </li>
+			  <li class="table-view-cell">
+			  	<a class="navigate-right">
+			    	<span class="media-object pull-left icon icon-star"></span>
+			      <div class="media-body">
+			        Daniel Noe
+			      </div>
+			    </a>
+			  </li>
+			  <li class="table-view-cell">
+			  	<a class="navigate-right">
+			    	<span class="media-object pull-left icon icon-star"></span>
+			      <div class="media-body">
+			        Brett Favre
+			      </div>
+			    </a>
+			  </li>
+			</ul>
     </div>
 
   </body>
