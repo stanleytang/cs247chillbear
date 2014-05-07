@@ -20,6 +20,7 @@
     <script src="bower_components/ratchet/dist/js/ratchet.js"></script>
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/ratchet/js/push.js"></script>
+    <script src='https://cdn.firebase.com/js/client/1.0.11/firebase.js'></script>'
   </head>
   <body>
 
@@ -35,19 +36,35 @@
     <div class="content">
     	<div class="content-padded communicate">
     		<img class="img" src="http://upload.wikimedia.org/wikipedia/commons/0/06/Cabo_San_Lucas_Los_Arcos_3.jpg" />
-    		<div class="chat_container">
+    		<div class="chat_container" id="chatbox">
 					<div class="bubble">
 						Check out Cabo!
-					</div>	
-					<div class="bubble bubble--alt">
-						That's awesome!!
 					</div>
 				</div>
 	    	<form  class="communicate_form">
-				  <input type="text" placeholder="type something...">
-				  <button class="btn btn-positive btn-block">Send</button>
+				  <input type="text" id="messageInput" placeholder="type something...">
+				  <!-- <button class="btn btn-positive btn-block">Send</button> -->
 				</form>
 			</div>
     </div>
+    <script>
+      var myDataRef = new Firebase('https://dazzling-fire-7228.firebaseio.com/');
+      $('#messageInput').keypress(function (e) {
+        if (e.keyCode == 13) {
+          var text = $('#messageInput').val();
+          myDataRef.push({name: 'Andy', text: text});
+          $('#messageInput').val('');
+        }
+      });
+      myDataRef.on('child_added', function(snapshot) {
+        var message = snapshot.val();
+        displayChatMessage(message.name, message.text);
+      });
+      function displayChatMessage(name, text) {
+      	var appendText = '<div class="bubble bubble--alt">'+text+'</div>'
+      	$("#chatbox").append(appendText);
+        //$('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
+      };
+    </script>
   </body>
 </html>
