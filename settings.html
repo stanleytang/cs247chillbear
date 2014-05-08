@@ -26,35 +26,36 @@
 
     <!-- Make sure all your bars are the first things in your <body> -->
     <header class="bar bar-nav">
-      <a class="btn btn-link btn-nav pull-left index_back" href="index.html" data-transition="slide-out">
+      <a class="btn btn-link btn-nav pull-left index_back" href="contacts.html" data-transition="slide-out">
         <span class="icon icon-left-nav"></span>
         Back
       </a>
-      <h1 class="title">Contacts</h1>
-      <span class="icon icon-plus pull-right"></span>
+      <h1 class="title">Reminder Settings</h1>
     </header>
 
-    <div class="content">
-      <ul class="table-view">
-        <li class="table-view-cell">
-          <a class="navigate-right" href="settings.html">
-            <span class="badge">Once a Day</span>
-            Andy Mai
-          </a>
-        </li>
-        <li class="table-view-cell">
-          <a class="navigate-right" href="settings.html">
-            <span class="badge">Once Every 3 Days</span>
-            Daniel Noe
-          </a>
-        </li>
-        <li class="table-view-cell">
-          <a class="navigate-right" href="settings.html">
-            <span class="badge">Once a Week</span>
-            Stanley Tang
-          </a>
-        </li>
-      </ul>
+    <div class="content centered" id="reminder-settings">
+      <h3>Andy Mai</h3>
+      <div class="toggle active">
+        <div class="toggle-handle"></div>
+      </div>
+      <h3>Every</h3>
+      <form>
+        <select>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+        </select>
+        <select>
+          <option value="day">Day</option>
+          <option value="week">Week</option>
+          <option value="month">Month</option>
+        </select>
+        <a class="btn btn-positive btn-block" href="contacts.html">Save</a>
+      </form>
     </div>
   </body>
 </html>
