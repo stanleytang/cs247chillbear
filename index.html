@@ -68,7 +68,9 @@
     <header class="bar bar-nav">
       <a href="contacts.html" class="icon icon-person pull-left"></a>
       <a href="camera.html" class="icon icon-compose pull-right"></a>
-      <h1 class="title">How Was Your Day</h1>
+      <a href="#reminder">
+        <h1 class="title" id="home-title">How Was Your Day</h1>
+      </a>
     </header>
 
     <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
@@ -123,6 +125,23 @@
 			    </a>
 			  </li>
 			</ul>
+
+      <div id="reminder" class="modal">
+        <div class="content centered">
+          <p class="content-padded">
+            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+            <h3>Don't forget to choose a moment to share with Stanley Tang! It has been 1 day since you last sent an update.</h3>
+            <button class="btn btn-negative">
+              <h3>Dismiss</h3>
+            </button>
+            <a href="index.html">
+              <button class="btn btn-positive">
+                <h3>Open App</h3>
+              </button>
+            </a>
+          </p>
+        </div>
+      </div>
     </div>
     <script src="main.js"></script>
   </body>
