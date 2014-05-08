@@ -54,7 +54,7 @@
     <div class="content">
       <ul class="table-view">
 			  <li class="table-view-cell">
-			  	<a class="navigate-right" href="communicate.html" data-transition="slide-in">
+			  	<a class="navigate-right communicate_link">
 			    	<span class="media-object pull-left icon icon-star-filled"></span>
 			      <div class="media-body">
 			        Andy Mai
@@ -111,6 +111,10 @@
 
       $("#camera-button").click(function() {
         PUSH({ url: 'camera.html', transition: 'slide-in'});
+      });
+
+      $(".communicate_link").click(function() {
+        PUSH({url:'communicate.html', transition: 'slide-in' });
       });
 
       $("body").delegate(".send-friend-name", "click", function() {
