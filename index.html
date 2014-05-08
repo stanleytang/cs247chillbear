@@ -14,12 +14,17 @@
     <!-- Include the compiled Ratchet CSS -->
     <link href="bower_components/ratchet/dist/css/ratchet.css" rel="stylesheet">
     <link href="bower_components/ratchet/dist/css/ratchet-theme-ios.css" rel="stylesheet">
+    <link href="bower_components/ratchet/dist/css/main.css" rel="stylesheet">
 
     <!-- Include the compiled Ratchet JS -->
     <script src="bower_components/ratchet/dist/js/ratchet.js"></script>
 
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/ratchet/js/push.js"></script>
+
+    <script src="shaw256.js"></script>
+
+    <script src='https://cdn.firebase.com/js/client/1.0.11/firebase.js'></script>
 
     <style>
       #camera-button {
@@ -37,16 +42,22 @@
       .send-friend-name.selected button {
         opacity: 1;
       }
+
+      .bubble img {
+        width: 100%;
+      }
     </style>
+    <script src="main.js"></script>
   </head>
   <body>
 
+    <form>
+      <input id="camera-button" type="file" accept="image/*;capture=camera"></input>
+    </form>
+
     <!-- Make sure all your bars are the first things in your <body> -->
     <header class="bar bar-nav">
-      <form>
-        <input id="camera-button" type="file" accept="image/*;capture=camera"></input>
-        <a id="camera-link" class="icon icon-compose pull-right"></a>
-      </form>
+      <a id="camera-link" class="icon icon-compose pull-right"></a>
       <h1 class="title">How Was Your Day</h1>
     </header>
 
@@ -111,6 +122,7 @@
 
       $("#camera-button").click(function() {
         PUSH({ url: 'camera.html', transition: 'slide-in'});
+        $("#camera-button").hide();
       });
 
       $(".communicate_link").click(function() {
@@ -125,6 +137,65 @@
           $(this).addClass("selected");
         }
       });
+
+      $("body").delegate("#send-photo-link", "click", function() {
+        handleFileSelect();
+        PUSH({ url: 'index.html', transition: 'slide-in'});
+        $("#camera-button").show();
+      });
+
+      $("body").delegate(".index_back", "click", function() {
+        PUSH({url:'index.html', transition: 'slide-out' });
+      });
+
+      $("body").delegate('#messageInput', "keypress", function (e) {
+        if (e.keyCode == 13) {
+          var text = $('#messageInput').val();
+          FIREBASE_INSTANCE.push({name: 'Andy', text: text});
+          $('#messageInput').val('');
+        }
+      });
+
+      FIREBASE_INSTANCE.on('child_added', function(snapshot) {
+        var message = snapshot.val();
+        if (message.text) {
+          displayChatMessage(message.name, message.text);
+        } else if (message.image) {
+          displayImageMessage(message.name, message.image);
+        } else {
+          displayVideoMessage(message.name, message.video);
+        }
+      });
+
+      function displayChatMessage(name, text) {
+        var appendText = '<div class="bubble bubble--alt">'+text+'</div>'
+        $("#chatbox").append(appendText);
+        $('.messagesDiv')[0].scrollTop = $('.messagesDiv')[0].scrollHeight;
+      }
+
+      function displayImageMessage(name, image) {
+        var src = URL.createObjectURL(base64_to_blob(image));
+        var appendText = '<img src="'+src+'" />';
+        $("#chatbox").append(appendText);
+        $('.messagesDiv')[0].scrollTop = $('.messagesDiv')[0].scrollHeight;
+      }
+
+      function displayVideoMessage(name, video) {
+        var video = document.createElement("video");
+        video.autoplay = false;
+        video.controls = false; // optional
+        video.loop = false;
+        video.width = 150;
+
+        var source = document.createElement("source");
+        source.src =  URL.createObjectURL(base64_to_blob(video));
+        source.type =  "video/webm";
+
+        video.appendChild(source);
+
+        var videoContainer = $('<div class="bubble bubble--alt">');
+        $("#chatbox").append(videoContainer.append(video));
+      }
     </script>
   </body>
 </html>
