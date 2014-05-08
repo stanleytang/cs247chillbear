@@ -41,10 +41,10 @@
 						Check out Cabo!
 					</div>
 				</div>
-	    	<form  class="communicate_form">
-				  <input type="text" id="messageInput" placeholder="type something...">
-				  <!-- <button class="btn btn-positive btn-block">Send</button> -->
-				</form>
+        <div class="messagesDiv">
+  				<input type="text" id="messageInput" placeholder="type something...">
+  				<!-- <button class="btn btn-positive btn-block">Send</button> -->
+        </div>
 			</div>
     </div>
     <script>
@@ -66,7 +66,7 @@
       function displayChatMessage(name, text) {
       	var appendText = '<div class="bubble bubble--alt">'+text+'</div>'
       	$("#chatbox").append(appendText);
-        //$('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
+        $('.messagesDiv')[0].scrollTop = $('.messagesDiv')[0].scrollHeight;
       };
     </script>
   </body>
