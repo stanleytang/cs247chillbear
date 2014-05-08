@@ -45,7 +45,8 @@
     <header class="bar bar-nav">
       <form>
         <input id="camera-button" type="file" accept="image/*;capture=camera"></input>
-        <a id="camera-link" class="icon icon-compose pull-right"></a>
+        <a href="contacts.html" class="icon icon-person pull-left"></a>
+        <a href="camera.html" class="icon icon-compose pull-right"></a>
       </form>
       <h1 class="title">How Was Your Day</h1>
     </header>
@@ -54,7 +55,7 @@
     <div class="content">
       <ul class="table-view">
 			  <li class="table-view-cell">
-			  	<a class="navigate-right communicate_link">
+			  	<a href="communicate.html" class="navigate-right">
 			    	<span class="media-object pull-left icon icon-star-filled"></span>
 			      <div class="media-body">
 			        Andy Mai
@@ -105,18 +106,6 @@
     </div>
 
     <script type="text/javascript">
-      // $("#camera-link").click(function() {
-      //   $("#camera-button").click();
-      // });
-
-      $("#camera-button").click(function() {
-        PUSH({ url: 'camera.html', transition: 'slide-in'});
-      });
-
-      $(".communicate_link").click(function() {
-        PUSH({url:'communicate.html', transition: 'slide-in' });
-      });
-
       $("body").delegate(".send-friend-name", "click", function() {
         //debugger;
         if ($(this).hasClass("selected")) {

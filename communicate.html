@@ -26,7 +26,7 @@
 
     <!-- Make sure all your bars are the first things in your <body> -->
     <header class="bar bar-nav">
-    	<a class="btn btn-link btn-nav pull-left index_back" href="index.html" data-transition="slide-out">
+    	<a class="btn btn-link btn-nav pull-left" href="index.html" data-transition="slide-out">
 		    <span class="icon icon-left-nav"></span>
 		    Back
 		  </a>
@@ -48,9 +48,6 @@
 			</div>
     </div>
     <script>
-      $(".index_back").click(function() {
-        PUSH({url:'index.html', transition: 'slide-out' });
-      });
       var myDataRef = new Firebase('https://dazzling-fire-7228.firebaseio.com/');
       $('#messageInput').keypress(function (e) {
         if (e.keyCode == 13) {

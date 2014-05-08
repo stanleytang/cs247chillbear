@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Contacts</title>
+
+    <!-- Sets initial viewport load and disables zooming  -->
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+
+    <!-- Makes your prototype chrome-less once bookmarked to your phone's home screen -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <!-- Include the compiled Ratchet CSS -->
+    <link href="bower_components/ratchet/dist/css/ratchet.css" rel="stylesheet">
+    <link href="bower_components/ratchet/dist/css/ratchet-theme-ios.css" rel="stylesheet">
+    <link href="bower_components/ratchet/dist/css/main.css" rel="stylesheet">
+
+    <!-- Include the compiled Ratchet JS -->
+    <script src="bower_components/ratchet/dist/js/ratchet.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/ratchet/js/push.js"></script>
+    <script src='https://cdn.firebase.com/js/client/1.0.11/firebase.js'></script>
+  </head>
+  <body>
+
+    <!-- Make sure all your bars are the first things in your <body> -->
+    <header class="bar bar-nav">
+      <a class="btn btn-link btn-nav pull-left index_back" href="index.html" data-transition="slide-out">
+        <span class="icon icon-left-nav"></span>
+        Back
+      </a>
+      <h1 class="title">Contacts</h1>
+    </header>
+
+    <div class="content">
+      <ul class="table-view">
+        <li class="table-view-cell">
+          <a class="navigate-right">
+            <span class="badge">5</span>
+            Andy Mai
+          </a>
+        </li>
+        <li class="table-view-cell">
+          <a class="navigate-right">
+            <span class="badge">5</span>
+            Daniel Noe
+          </a>
+        </li>
+        <li class="table-view-cell">
+          <a class="navigate-right">
+            <span class="badge">5</span>
+            Stanley Tang
+          </a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
