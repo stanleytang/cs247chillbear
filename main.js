@@ -109,7 +109,7 @@ function displayVideoMessage(name, video) {
 
   var source = document.createElement("source");
   source.src =  URL.createObjectURL(base64_to_blob(video));
-  // source.type =  "video";
+  source.type =  "video/MP4";
 
   videoDOM.appendChild(source);
 
