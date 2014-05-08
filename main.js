@@ -100,18 +100,18 @@ function displayImageMessage(name, image) {
 function displayVideoMessage(name, video) {
   if ($("#chatbox").length == 0) return;
 
-  var video = document.createElement("video");
-  video.autoplay = false;
-  video.controls = false; // optional
-  video.loop = false;
-  video.width = 150;
+  var videoDOM = document.createElement("video");
+  videoDOM.autoplay = true;
+  videoDOM.controls = true; // optional
+  videoDOM.loop = true;
+  videoDOM.width = 250;
 
   var source = document.createElement("source");
   source.src =  URL.createObjectURL(base64_to_blob(video));
   source.type =  "video/webm";
 
-  video.appendChild(source);
+  videoDOM.appendChild(source);
 
-  var videoContainer = $('<div class="bubble bubble--alt">');
-  $("#chatbox").append(videoContainer.append(video));
+  var videoContainer = $('<div class="video-container">');
+  $("#chatbox").append(videoContainer.append(videoDOM));
 }
