@@ -2,8 +2,14 @@ var FIREBASE_INSTANCE = new Firebase('https://dazzling-fire-7228.firebaseio.com/
 
 function handleFileSelect() {
   var f = $("#camera-button")[0].files[0];
+
+  var isImage = f.type.indexOf("image") != 0;
   blob_to_base64(f, function(b64_data) {
-    FIREBASE_INSTANCE.push({name: 'Andy', image: b64_data});
+    if (isImage) {
+      FIREBASE_INSTANCE.push({name: 'Andy', image: b64_data});
+    } else {
+      FIREBASE_INSTANCE.push({name: 'Andy', video: b64_data});
+    }
   });
 }
 
