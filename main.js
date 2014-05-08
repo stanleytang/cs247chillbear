@@ -38,8 +38,6 @@ var base64_to_blob = function(base64) {
   return blob;
 };
 
-
-
 $("body").delegate(".send-friend-name", "click", function() {
   if ($(this).hasClass("selected")) {
     $(this).removeClass("selected");
@@ -79,6 +77,7 @@ FIREBASE_INSTANCE.on('child_added', function(snapshot) {
 
 $("body").delegate("#camera-button", "click", function() {
   PUSH({url: 'camera.html', transition: 'slide-in'});
+  $("#camera-button").hide();
 });
 
 function displayChatMessage(name, text) {
