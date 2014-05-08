@@ -37,3 +37,82 @@ var base64_to_blob = function(base64) {
   var blob = new Blob([view]);
   return blob;
 };
+
+
+
+$("body").delegate(".send-friend-name", "click", function() {
+  if ($(this).hasClass("selected")) {
+    $(this).removeClass("selected");
+  } else {
+    $(this).addClass("selected");
+  }
+});
+
+$("body").delegate("#send-photo-link", "click", function() {
+  handleFileSelect();
+  PUSH({ url: 'index.html', transition: 'slide-in'});
+  $("#camera-button").show();
+});
+
+$("body").delegate(".index_back", "click", function() {
+  PUSH({url:'index.html', transition: 'slide-out' });
+});
+
+$("body").delegate('#messageInput', "keypress", function (e) {
+  if (e.keyCode == 13) {
+    var text = $('#messageInput').val();
+    FIREBASE_INSTANCE.push({name: 'Andy', text: text});
+    $('#messageInput').val('');
+  }
+});
+
+FIREBASE_INSTANCE.on('child_added', function(snapshot) {
+  var message = snapshot.val();
+  if (message.text) {
+    displayChatMessage(message.name, message.text);
+  } else if (message.image) {
+    displayImageMessage(message.name, message.image);
+  } else {
+    displayVideoMessage(message.name, message.video);
+  }
+});
+
+$("body").delegate("#camera-button", "click", function() {
+  PUSH({url: 'camera.html', transition: 'slide-in'});
+});
+
+function displayChatMessage(name, text) {
+  if ($("#chatbox").length == 0) return;
+
+  var appendText = '<div class="bubble bubble--alt">'+text+'</div>'
+  $("#chatbox").append(appendText);
+  $('.messagesDiv')[0].scrollTop = $('.messagesDiv')[0].scrollHeight;
+}
+
+function displayImageMessage(name, image) {
+  if ($("#chatbox").length == 0) return;
+
+  var src = URL.createObjectURL(base64_to_blob(image));
+  var appendText = '<img class="img" src="'+src+'" />';
+  $("#chatbox").append(appendText);
+  $('.messagesDiv')[0].scrollTop = $('.messagesDiv')[0].scrollHeight;
+}
+
+function displayVideoMessage(name, video) {
+  if ($("#chatbox").length == 0) return;
+
+  var video = document.createElement("video");
+  video.autoplay = false;
+  video.controls = false; // optional
+  video.loop = false;
+  video.width = 150;
+
+  var source = document.createElement("source");
+  source.src =  URL.createObjectURL(base64_to_blob(video));
+  source.type =  "video/webm";
+
+  video.appendChild(source);
+
+  var videoContainer = $('<div class="bubble bubble--alt">');
+  $("#chatbox").append(videoContainer.append(video));
+}
