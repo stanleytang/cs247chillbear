@@ -166,19 +166,25 @@
       });
 
       function displayChatMessage(name, text) {
+        if ($("#chatbox").length == 0) return;
+
         var appendText = '<div class="bubble bubble--alt">'+text+'</div>'
         $("#chatbox").append(appendText);
         $('.messagesDiv')[0].scrollTop = $('.messagesDiv')[0].scrollHeight;
       }
 
       function displayImageMessage(name, image) {
+        if ($("#chatbox").length == 0) return;
+
         var src = URL.createObjectURL(base64_to_blob(image));
-        var appendText = '<img src="'+src+'" />';
+        var appendText = '<img class="img" src="'+src+'" />';
         $("#chatbox").append(appendText);
         $('.messagesDiv')[0].scrollTop = $('.messagesDiv')[0].scrollHeight;
       }
 
       function displayVideoMessage(name, video) {
+        if ($("#chatbox").length == 0) return;
+
         var video = document.createElement("video");
         video.autoplay = false;
         video.controls = false; // optional
