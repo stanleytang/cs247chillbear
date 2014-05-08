@@ -102,7 +102,7 @@ function displayVideoMessage(name, video) {
   if ($("#chatbox").length == 0) return;
 
   var videoDOM = document.createElement("video");
-  videoDOM.autoplay = true;
+  //videoDOM.autoplay = true;
   videoDOM.controls = true; // optional
   videoDOM.loop = true;
   videoDOM.width = 250;
@@ -112,6 +112,9 @@ function displayVideoMessage(name, video) {
   source.type =  "video/mp4";
 
   videoDOM.appendChild(source);
+  setTimeout(function(){
+    videoDOM.play();
+  },0);
 
   var videoContainer = $('<div class="video-container">');
   $("#chatbox").append(videoContainer.append(videoDOM));
