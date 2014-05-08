@@ -54,6 +54,7 @@ $("body").delegate("#send-photo-link", "click", function() {
 
 $("body").delegate(".index_back", "click", function() {
   PUSH({url:'index.html', transition: 'slide-out' });
+  $("#camera-button").show();
 });
 
 $("body").delegate('#messageInput', "keypress", function (e) {
@@ -108,7 +109,7 @@ function displayVideoMessage(name, video) {
 
   var source = document.createElement("source");
   source.src =  URL.createObjectURL(base64_to_blob(video));
-  source.type =  "video/webm";
+  // source.type =  "video";
 
   videoDOM.appendChild(source);
 
