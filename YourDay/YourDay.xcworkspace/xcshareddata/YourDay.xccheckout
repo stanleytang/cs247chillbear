@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>C0473F62-1F3C-4E17-8CEE-4436DD6AD659</string>
+	<key>IDESourceControlProjectName</key>
+	<string>YourDay</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>E60D5939-FE76-415A-8C1F-8007D00B8E44</key>
+		<string>https://github.com/stanleytang/cs247chillbear.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>YourDay/YourDay.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>E60D5939-FE76-415A-8C1F-8007D00B8E44</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/stanleytang/cs247chillbear.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>E60D5939-FE76-415A-8C1F-8007D00B8E44</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E60D5939-FE76-415A-8C1F-8007D00B8E44</string>
+			<key>IDESourceControlWCCName</key>
+			<string>cs247chillbear</string>
+		</dict>
+	</array>
+</dict>
+</plist>
