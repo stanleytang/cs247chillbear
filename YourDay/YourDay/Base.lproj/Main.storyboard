@@ -21,7 +21,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="Gzb-QP-zlF" kind="push" id="NY5-Px-VZE"/>
+                                    <segue destination="Gzb-QP-zlF" kind="push" identifier="Display Messages" id="NY5-Px-VZE"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -85,10 +85,10 @@
             </objects>
             <point key="canvasLocation" x="796" y="-767"/>
         </scene>
-        <!--View Controller-->
+        <!--Message View Controller-->
         <scene sceneID="H9V-OS-UAi">
             <objects>
-                <viewController id="Gzb-QP-zlF" sceneMemberID="viewController">
+                <viewController id="Gzb-QP-zlF" customClass="YDMessageViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2LD-dt-5r6"/>
                         <viewControllerLayoutGuide type="bottom" id="JSU-bq-LIY"/>

@@ -6,23 +6,43 @@
 	<dict>
 		<key>Pods-Firebase.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-JSQMessagesViewController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-JSQSystemSoundPlayer.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>0</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>88B94E079E104F0C914B0C3C</key>
+		<key>0B67110A7ABE4DB48F77F17E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A79A0F460590442C96B0055F</key>
+		<key>54E4256907B646F8BA5176FB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8036592A174447EB86861808</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DA0E4B0ED4A14A8CAB5E39E2</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -7,6 +7,7 @@
 //
 
 #import "YDInboxTableViewController.h"
+#import "YDMessageViewController.h"
 
 @interface YDInboxTableViewController ()
 @property (strong, nonatomic) NSArray *users;
@@ -105,7 +106,7 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -113,7 +114,21 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([sender isKindOfClass:[UITableViewCell class]]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        if (indexPath) {
+            if ([segue.identifier isEqualToString:@"Display Messages"]) {
+                if ([segue.destinationViewController isKindOfClass:[YDMessageViewController class]]) {
+                    YDMessageViewController *dstController = segue.destinationViewController;
+                    NSString *userName = self.users[indexPath.row];
+                    dstController.title = userName;
+                    dstController.userName = userName;
+                }
+            }
+        }
+    }
+
 }
-*/
+
 
 @end

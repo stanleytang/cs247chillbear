@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		63D36A134A5E4D948B667911 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C818D0F6D764D4A8E19C0E7 /* libPods.a */; };
 		63EF04CE19203C08004A3B24 /* YDInboxTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EF04CD19203C08004A3B24 /* YDInboxTableViewController.m */; };
+		63EF04D1192040ED004A3B24 /* YDMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EF04D0192040ED004A3B24 /* YDMessageViewController.m */; };
 		69175394192035AC00A31163 /* YDUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 69175393192035AC00A31163 /* YDUser.m */; };
 		691753971920364F00A31163 /* YDMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 691753961920364F00A31163 /* YDMessage.m */; };
 		69C264161920338C00862783 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69C264151920338C00862783 /* Foundation.framework */; };
@@ -42,6 +43,8 @@
 		573DFC4CB8494C918FA4D163 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		63EF04CC19203C08004A3B24 /* YDInboxTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDInboxTableViewController.h; sourceTree = "<group>"; };
 		63EF04CD19203C08004A3B24 /* YDInboxTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDInboxTableViewController.m; sourceTree = "<group>"; };
+		63EF04CF192040ED004A3B24 /* YDMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDMessageViewController.h; sourceTree = "<group>"; };
+		63EF04D0192040ED004A3B24 /* YDMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDMessageViewController.m; sourceTree = "<group>"; };
 		69175392192035AC00A31163 /* YDUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YDUser.h; path = Models/YDUser.h; sourceTree = "<group>"; };
 		69175393192035AC00A31163 /* YDUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YDUser.m; path = Models/YDUser.m; sourceTree = "<group>"; };
 		691753951920364F00A31163 /* YDMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YDMessage.h; path = Models/YDMessage.h; sourceTree = "<group>"; };
@@ -110,6 +113,8 @@
 				69C2642B1920338C00862783 /* YDViewController.m */,
 				63EF04CC19203C08004A3B24 /* YDInboxTableViewController.h */,
 				63EF04CD19203C08004A3B24 /* YDInboxTableViewController.m */,
+				63EF04CF192040ED004A3B24 /* YDMessageViewController.h */,
+				63EF04D0192040ED004A3B24 /* YDMessageViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -325,6 +330,7 @@
 				69C264221920338C00862783 /* main.m in Sources */,
 				63EF04CE19203C08004A3B24 /* YDInboxTableViewController.m in Sources */,
 				69C2642C1920338C00862783 /* YDViewController.m in Sources */,
+				63EF04D1192040ED004A3B24 /* YDMessageViewController.m in Sources */,
 				69C264261920338C00862783 /* YDAppDelegate.m in Sources */,
 				69175394192035AC00A31163 /* YDUser.m in Sources */,
 				691753971920364F00A31163 /* YDMessage.m in Sources */,
