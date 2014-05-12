@@ -13,13 +13,18 @@
 #import <XHDisplayLocationViewController.h>
 #import <XHProfileTableViewController.h>
 
+#import "NSStrinAdditions.h"
+
 #import <Firebase/Firebase.h>
 
 @interface YDMessageTableViewController ()
 @property (nonatomic, strong) NSArray *emotionManagers;
+
 @end
 
 @implementation YDMessageTableViewController
+
+NSUInteger count = 0;
 
 - (XHMessage *)getTextMessageWithBubbleMessageType:(XHBubbleMessageType)bubbleMessageType {
     XHMessage *textMessage = [[XHMessage alloc] initWithText:@"Hello World" sender:@"Tom" timestamp:[NSDate distantPast]];
@@ -149,6 +154,25 @@
     Firebase* f = [[Firebase alloc] initWithUrl:@"https://dazzling-fire-7228.firebaseio.com/"];
     [f observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
         NSLog(@"%@ -> %@", snapshot.name, snapshot.value);
+        
+        @try {
+            NSDictionary *value = (NSDictionary *)snapshot.value;
+            NSData *videoData = [NSData base64DataFromString:(NSString *)[value objectForKey:@"video"]];
+            
+            NSArray *dirPaths= NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+            NSString *docsDir= [dirPaths objectAtIndex:0];
+            NSString *databasePath = [[NSString alloc] initWithString: [docsDir stringByAppendingPathComponent:[NSString stringWithFormat:@"video%d.mp4", count++]]];
+            [videoData writeToFile:databasePath atomically:YES];
+            
+            [self addMessage:[[XHMessage alloc] initWithVideoConverPhoto:[UIImage imageNamed:@"play"] videoPath:databasePath videoUrl:nil sender:@"Jack Smith" timestamp:[NSDate date]]];
+            
+        }
+        @catch (NSException * e) {
+            NSLog(@"Exception: %@", e);
+        }
+        @finally {
+            NSLog(@"finally");
+        }
     }];
     
     [self loadDemoDataSource];

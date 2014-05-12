@@ -41,6 +41,7 @@
 		69E2BF6519205D5A00CBDF8D /* YDSnapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E2BF6319205D5A00CBDF8D /* YDSnapViewController.m */; };
 		69E2BF6819205DA900CBDF8D /* PBJStrobeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E2BF6719205DA900CBDF8D /* PBJStrobeView.m */; };
 		69E2BF6A19205E2A00CBDF8D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69E2BF6919205E2A00CBDF8D /* Main.storyboard */; };
+		69E2BF6F19206C5A00CBDF8D /* play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 69E2BF6E19206C5A00CBDF8D /* play@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +103,7 @@
 		69E2BF6719205DA900CBDF8D /* PBJStrobeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBJStrobeView.m; sourceTree = "<group>"; };
 		69E2BF6919205E2A00CBDF8D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		69E2BF6B192061E300CBDF8D /* NSStrinAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSStrinAdditions.h; sourceTree = "<group>"; };
+		69E2BF6E19206C5A00CBDF8D /* play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,8 +149,6 @@
 				69C2642B1920338C00862783 /* YDViewController.m */,
 				63EF04CC19203C08004A3B24 /* YDInboxTableViewController.h */,
 				63EF04CD19203C08004A3B24 /* YDInboxTableViewController.m */,
-				63EF04CF192040ED004A3B24 /* YDMessageViewController.h */,
-				63EF04D0192040ED004A3B24 /* YDMessageViewController.m */,
 				69E2BF6019205D5A00CBDF8D /* YDSelectFriendsTableViewController.h */,
 				69E2BF6119205D5A00CBDF8D /* YDSelectFriendsTableViewController.m */,
 				69E2BF6219205D5A00CBDF8D /* YDSnapViewController.h */,
@@ -241,6 +241,7 @@
 		69E2BF4719205D3C00CBDF8D /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				69E2BF6E19206C5A00CBDF8D /* play@2x.png */,
 				69E2BF4819205D4C00CBDF8D /* capture_flip@2x.png */,
 				69E2BF4919205D4C00CBDF8D /* capture_focus_button_active@2x.png */,
 				69E2BF4A19205D4C00CBDF8D /* capture_focus_button@2x.png */,
@@ -337,6 +338,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				69E2BF5819205D4C00CBDF8D /* capture_onion_selected@2x.png in Resources */,
+				69E2BF6F19206C5A00CBDF8D /* play@2x.png in Resources */,
 				69E2BF5E19205D4C00CBDF8D /* record-button-recording@2x.png in Resources */,
 				69E2BF5D19205D4C00CBDF8D /* capture_yep@2x.png in Resources */,
 				69C2642E1920338C00862783 /* Images.xcassets in Resources */,
@@ -407,7 +409,6 @@
 				63EF04CE19203C08004A3B24 /* YDInboxTableViewController.m in Sources */,
 				63EF04D419204908004A3B24 /* YDMessageTableViewController.m in Sources */,
 				69C2642C1920338C00862783 /* YDViewController.m in Sources */,
-				63EF04D1192040ED004A3B24 /* YDMessageViewController.m in Sources */,
 				69E2BF6519205D5A00CBDF8D /* YDSnapViewController.m in Sources */,
 				69C264261920338C00862783 /* YDAppDelegate.m in Sources */,
 				69175394192035AC00A31163 /* YDUser.m in Sources */,
