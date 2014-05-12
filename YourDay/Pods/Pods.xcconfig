@@ -1,6 +1,0 @@
-FRAMEWORK_SEARCH_PATHS = "$(PODS_ROOT)/Firebase"
-GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/Firebase" "${PODS_ROOT}/Headers/JSQMessagesViewController" "${PODS_ROOT}/Headers/JSQSystemSoundPlayer"
-OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers" -isystem "${PODS_ROOT}/Headers/Firebase" -isystem "${PODS_ROOT}/Headers/JSQMessagesViewController" -isystem "${PODS_ROOT}/Headers/JSQSystemSoundPlayer"
-OTHER_LDFLAGS = -ObjC -lc++ -licucore -framework AudioToolbox -framework CFNetwork -framework Firebase -framework QuartzCore -framework Security -framework SystemConfiguration
-PODS_ROOT = ${SRCROOT}/Pods
