@@ -101,6 +101,7 @@
 		69E2BF6619205DA900CBDF8D /* PBJStrobeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBJStrobeView.h; sourceTree = "<group>"; };
 		69E2BF6719205DA900CBDF8D /* PBJStrobeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBJStrobeView.m; sourceTree = "<group>"; };
 		69E2BF6919205E2A00CBDF8D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		69E2BF6B192061E300CBDF8D /* NSStrinAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSStrinAdditions.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +194,7 @@
 		69C2641B1920338C00862783 /* YourDay */ = {
 			isa = PBXGroup;
 			children = (
+				69E2BF6B192061E300CBDF8D /* NSStrinAdditions.h */,
 				69E2BF6919205E2A00CBDF8D /* Main.storyboard */,
 				69E2BF6619205DA900CBDF8D /* PBJStrobeView.h */,
 				69E2BF6719205DA900CBDF8D /* PBJStrobeView.m */,

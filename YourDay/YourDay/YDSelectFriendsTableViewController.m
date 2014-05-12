@@ -9,6 +9,7 @@
 #import "YDSelectFriendsTableViewController.h"
 
 #import <Firebase/Firebase.h>
+#import "NSStrinAdditions.h"
 
 @interface YDSelectFriendsTableViewController ()
 
@@ -120,7 +121,8 @@
     if([segue.identifier isEqualToString:@"SendSnap"])
     {
         Firebase* nameRef = [[Firebase alloc] initWithUrl:@"https://dazzling-fire-7228.firebaseio.com/"];
-        [nameRef setValue:[NSDictionary dictionaryWithObjectsAndKeys:@"Andy Mai", @"name", self.videoData, @"video", nil]];
+        NSString *videoString = [NSString base64StringFromData:self.videoData length:[self.videoData length]];
+        [nameRef setValue:[NSDictionary dictionaryWithObjectsAndKeys:@"Andy Mai", @"name", videoString, @"video", nil]];
     }
 }
 @end
