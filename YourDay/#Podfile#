@@ -1,0 +1,4 @@
+
+platform :ios, '7.0'
+pod 'Firebase',  '~> 1.1.7'
+pod 'MessageDisplayKit', '~> 0.1.8'

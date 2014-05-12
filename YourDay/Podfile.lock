@@ -1,16 +1,13 @@
 PODS:
   - Firebase (1.1.7)
-  - JSQMessagesViewController (5.0.0):
-    - JSQSystemSoundPlayer
-  - JSQSystemSoundPlayer (1.5.0)
+  - MessageDisplayKit (0.1.8)
 
 DEPENDENCIES:
   - Firebase (~> 1.1.7)
-  - JSQMessagesViewController
+  - MessageDisplayKit (~> 0.1.8)
 
 SPEC CHECKSUMS:
   Firebase: 3751820c094b0dd34f9a8759492ab96a4efbdfa2
-  JSQMessagesViewController: 4ebac202bb5c3b4717b877b12905f41e14599776
-  JSQSystemSoundPlayer: 6dbac8dcc33e3add6facb3e59451a0249aece17d
+  MessageDisplayKit: f5b14c519942e507e67184b3e15959ba9e1eff0b
 
 COCOAPODS: 0.32.1
