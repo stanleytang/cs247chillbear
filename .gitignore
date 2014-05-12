@@ -1,0 +1,23 @@
+.DS_Store
+
+# Xcode
+YourDay/.DS_Store
+YourDay/*/build/*
+YourDay/*.pbxuser
+YourDay/!default.pbxuser
+YourDay/*.mode1v3
+YourDay/!default.mode1v3
+YourDay/*.mode2v3
+YourDay/!default.mode2v3
+YourDay/*.perspectivev3
+YourDay/!default.perspectivev3
+YourDay/xcuserdata
+YourDay/profile
+YourDay/*.moved-aside
+YourDay/DerivedData
+YourDay/.idea/
+YourDay/*.hmap
+YourDay/*.xccheckout
+
+#CocoaPods
+YourDay/Pods
