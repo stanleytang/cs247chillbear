@@ -7,7 +7,7 @@
 //
 
 #import "YDInboxTableViewController.h"
-#import "YDMessageViewController.h"
+#import "YDMessageTableViewController.h"
 
 @interface YDInboxTableViewController ()
 @property (strong, nonatomic) NSArray *users;
@@ -118,10 +118,9 @@
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         if (indexPath) {
             if ([segue.identifier isEqualToString:@"Display Messages"]) {
-                if ([segue.destinationViewController isKindOfClass:[YDMessageViewController class]]) {
-                    YDMessageViewController *dstController = segue.destinationViewController;
+                if ([segue.destinationViewController isKindOfClass:[YDMessageTableViewController class]]) {
+                    YDMessageTableViewController *dstController = segue.destinationViewController;
                     NSString *userName = self.users[indexPath.row];
-                    dstController.title = userName;
                     dstController.userName = userName;
                 }
             }

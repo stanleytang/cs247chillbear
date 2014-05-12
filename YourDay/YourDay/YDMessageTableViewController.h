@@ -1,5 +1,5 @@
 //
-//  YDMessageViewController.h
+//  YDMessageTableViewController.h
 //  YourDay
 //
 //  Created by Andy Mai on 5/11/14.
@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <JSQMessagesViewController.h>
+#import <XHMessageTableViewController.h>
 
-@interface YDMessageViewController : JSQMessagesViewController
+@interface YDMessageTableViewController : XHMessageTableViewController
 @property (strong, nonatomic) NSString *userName;
 @end

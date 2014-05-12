@@ -173,10 +173,10 @@
             </objects>
             <point key="canvasLocation" x="1250" y="-767"/>
         </scene>
-        <!--View Controller-->
+        <!--Message Table View Controller-->
         <scene sceneID="H9V-OS-UAi">
             <objects>
-                <viewController id="Gzb-QP-zlF" sceneMemberID="viewController">
+                <viewController id="Gzb-QP-zlF" customClass="YDMessageTableViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2LD-dt-5r6"/>
                         <viewControllerLayoutGuide type="bottom" id="JSU-bq-LIY"/>
