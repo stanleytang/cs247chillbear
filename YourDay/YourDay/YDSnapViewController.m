@@ -220,7 +220,12 @@ NSUInteger timerSeconds = 0;
 }
 
 - (IBAction)handleTapGesterRecognizer:(UIGestureRecognizer *)gestureRecognizer {
-    [[PBJVision sharedInstance] capturePhoto];
+//    [[PBJVision sharedInstance] capturePhoto];
+    [self _startCapture];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (0.08 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self _endCapture];
+    });
 }
 
 - (IBAction)handleFocusTapGesterRecognizer:(UIGestureRecognizer *)gestureRecognizer

@@ -182,7 +182,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ulm-il-Ydq">
-                                <rect key="frame" x="125" y="478" width="70" height="70"/>
+                                <rect key="frame" x="115" y="458" width="90" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                                 <state key="normal" backgroundImage="record-button.png"/>
@@ -229,13 +229,13 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O1Y-Jg-fLE" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer enabled="NO" id="Ili-Eo-4Jo">
+                <tapGestureRecognizer id="Ili-Eo-4Jo">
                     <connections>
                         <action selector="handleTapGesterRecognizer:" destination="dPP-ig-vpO" id="mIv-3w-vNx"/>
                         <outlet property="delegate" destination="dPP-ig-vpO" id="3DW-Zb-bzh"/>
                     </connections>
                 </tapGestureRecognizer>
-                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.20000000000000001" id="hqD-2c-kmI">
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="hqD-2c-kmI">
                     <connections>
                         <action selector="handleLongPressGestureRecognizer:" destination="dPP-ig-vpO" id="FwA-dn-KUK"/>
                         <outlet property="delegate" destination="dPP-ig-vpO" id="429-dR-Tne"/>
