@@ -10,8 +10,6 @@
 #import "YDFreqSettingViewController.h"
 
 @interface YDSettingsTableViewController ()
-@property(strong, nonatomic) NSArray *contacts;
-@property(strong, nonatomic) NSMutableDictionary *frequencies;
 @end
 
 @implementation YDSettingsTableViewController
@@ -35,22 +33,27 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    self.contacts = @[@"Andy Mai", @"Stanley Tang", @"Daniel Noe", @"Trent Murphy"];
-    NSArray *times = @[@"every day", @"every week", @"every day", @"every month"];
-    
-    for (NSUInteger i = 0; i < [self.contacts count]; i++) {
-        self.frequencies[[self.contacts objectAtIndex:i]] = [times objectAtIndex:i];
-    }
+    //self.contacts = @[@"Andy Mai", @"Stanley Tang", @"Daniel Noe", @"Trent Murphy"];
+    //[self.tableView reloadData];
 }
-
-- (NSMutableDictionary *)frequencies
-{
-    if (!_frequencies) {
-        _frequencies = [[NSMutableDictionary alloc] init];
-    }
-    
-    return _frequencies;
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.tableView reloadData]; // to reload selected cell
 }
+//- (NSMutableDictionary *)frequencies
+//{
+//    if (!_frequencies) {
+//        _frequencies = [[NSMutableDictionary alloc] init];
+//        NSArray *times = @[@"every day", @"every week", @"every day", @"every month"];
+//        
+//        for (NSUInteger i = 0; i < [self.contacts count]; i++) {
+//            _frequencies[[self.contacts objectAtIndex:i]] = [times objectAtIndex:i];
+//        }
+//
+//    }
+//    
+//    return _frequencies;
+//}
 
 - (void)didReceiveMemoryWarning
 {

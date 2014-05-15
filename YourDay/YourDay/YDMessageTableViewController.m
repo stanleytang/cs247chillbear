@@ -128,36 +128,36 @@ NSUInteger count = 0;
     
     self.title = self.userName;
     
-    NSMutableArray *shareMenuItems = [NSMutableArray array];
-    NSArray *plugIcons = @[@"sharemore_pic", @"sharemore_video", @"sharemore_location", @"sharemore_voiceinput"];
-    NSArray *plugTitle = @[@"Photo", @"Video", @"Location", @"Audio"];
-    for (NSInteger i = 0; i < [plugTitle count]; i ++) {
-        XHShareMenuItem *shareMenuItem = [[XHShareMenuItem alloc] initWithNormalIconImage:[UIImage imageNamed:[plugIcons objectAtIndex:i]] title:[plugTitle objectAtIndex:i]];
-        [shareMenuItems addObject:shareMenuItem];
-    }
-    
-    NSMutableArray *emotionManagers = [NSMutableArray array];
-    for (NSInteger i = 0; i < 10; i ++) {
-        XHEmotionManager *emotionManager = [[XHEmotionManager alloc] init];
-        
-        NSMutableArray *emotions = [NSMutableArray array];
-        for (NSInteger j = 0; j < 32; j ++) {
-            XHEmotion *emotion = [[XHEmotion alloc] init];
-            NSString *imageName = [NSString stringWithFormat:@"section%ld_emotion%ld", (long)i , (long)j % 16];
-            emotion.emotionPath = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"Demo%ld.gif", (long)j % 2] ofType:@""];
-            emotion.emotionConverPhoto = [UIImage imageNamed:imageName];
-            [emotions addObject:emotion];
-        }
-        emotionManager.emotions = emotions;
-        
-        [emotionManagers addObject:emotionManager];
-    }
-    
-    self.emotionManagers = emotionManagers;
-    [self.emotionManagerView reloadData];
-    
-    self.shareMenuItems = shareMenuItems;
-    [self.shareMenuView reloadData];
+//    NSMutableArray *shareMenuItems = [NSMutableArray array];
+//    NSArray *plugIcons = @[@"sharemore_pic", @"sharemore_video", @"sharemore_location", @"sharemore_voiceinput"];
+//    NSArray *plugTitle = @[@"Photo", @"Video", @"Location", @"Audio"];
+//    for (NSInteger i = 0; i < [plugTitle count]; i ++) {
+//        XHShareMenuItem *shareMenuItem = [[XHShareMenuItem alloc] initWithNormalIconImage:[UIImage imageNamed:[plugIcons objectAtIndex:i]] title:[plugTitle objectAtIndex:i]];
+//        [shareMenuItems addObject:shareMenuItem];
+//    }
+//    
+//    NSMutableArray *emotionManagers = [NSMutableArray array];
+//    for (NSInteger i = 0; i < 10; i ++) {
+//        XHEmotionManager *emotionManager = [[XHEmotionManager alloc] init];
+//        
+//        NSMutableArray *emotions = [NSMutableArray array];
+//        for (NSInteger j = 0; j < 32; j ++) {
+//            XHEmotion *emotion = [[XHEmotion alloc] init];
+//            NSString *imageName = [NSString stringWithFormat:@"section%ld_emotion%ld", (long)i , (long)j % 16];
+//            emotion.emotionPath = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"Demo%ld.gif", (long)j % 2] ofType:@""];
+//            emotion.emotionConverPhoto = [UIImage imageNamed:imageName];
+//            [emotions addObject:emotion];
+//        }
+//        emotionManager.emotions = emotions;
+//        
+//        [emotionManagers addObject:emotionManager];
+//    }
+//    
+//    self.emotionManagers = emotionManagers;
+//    [self.emotionManagerView reloadData];
+//    
+//    self.shareMenuItems = shareMenuItems;
+//    [self.shareMenuView reloadData];
     
     //Firebase* f = [[Firebase alloc] initWithUrl:@"https://dazzling-fire-7228.firebaseio.com/"];
     [self.firebase observeEventType:FEventTypeChildAdded withBlock:^(FDataSnapshot *snapshot) {
