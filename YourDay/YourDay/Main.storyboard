@@ -235,7 +235,7 @@
                         <outlet property="delegate" destination="dPP-ig-vpO" id="3DW-Zb-bzh"/>
                     </connections>
                 </tapGestureRecognizer>
-                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="hqD-2c-kmI">
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.20000000000000001" id="hqD-2c-kmI">
                     <connections>
                         <action selector="handleLongPressGestureRecognizer:" destination="dPP-ig-vpO" id="FwA-dn-KUK"/>
                         <outlet property="delegate" destination="dPP-ig-vpO" id="429-dR-Tne"/>

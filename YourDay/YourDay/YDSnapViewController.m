@@ -401,7 +401,7 @@ NSUInteger timerSeconds = 0;
     _currentPhoto = nil;
     
     UIAlertView *alert;
-    if ([[_currentVideo objectForKey:PBJVisionVideoCapturedDurationKey] integerValue] < 1.5) {
+    if ([[_currentVideo objectForKey:PBJVisionVideoCapturedDurationKey] integerValue] < 1) {
         alert = [[UIAlertView alloc] initWithTitle: @"Photo Captured!"
                                            message: @"The photo has been captured. Press Next to send it to your friends"
                                           delegate:self
@@ -449,7 +449,7 @@ NSUInteger timerSeconds = 0;
         if (_currentVideo) {
             NSString *videoPath = [_currentVideo  objectForKey:PBJVisionVideoPathKey];
             
-            if ([[_currentVideo objectForKey:PBJVisionVideoCapturedDurationKey] integerValue] < 1.5) {
+            if ([[_currentVideo objectForKey:PBJVisionVideoCapturedDurationKey] integerValue] < 1) {
                 UIImage *image = [YDSnapViewController thumbnailImageForVideo:[NSURL fileURLWithPath:videoPath] atTime:0];
                 selectFriendsTVC.photoData = UIImagePNGRepresentation(image);
             } else {
