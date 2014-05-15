@@ -19,8 +19,6 @@
 @interface YDSnapViewController () <UIGestureRecognizerDelegate, PBJVisionDelegate> {
     AVCaptureVideoPreviewLayer *_previewLayer;
     
-    UIView *_focusView;
-    
     ALAssetsLibrary *_assetLibrary;
     __block NSDictionary *_currentVideo;
     __block NSDictionary *_currentPhoto;
@@ -29,6 +27,37 @@
 @end
 
 @implementation YDSnapViewController
+
++ (UIImage *)thumbnailImageForVideo:(NSURL *)videoURL
+                             atTime:(NSTimeInterval)time
+{
+    
+    AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:videoURL options:nil];
+    NSParameterAssert(asset);
+    AVAssetImageGenerator *assetIG =
+    [[AVAssetImageGenerator alloc] initWithAsset:asset];
+    assetIG.appliesPreferredTrackTransform = YES;
+    assetIG.apertureMode = AVAssetImageGeneratorApertureModeEncodedPixels;
+    
+    CGImageRef thumbnailImageRef = NULL;
+    CFTimeInterval thumbnailImageTime = time;
+    NSError *igError = nil;
+    thumbnailImageRef =
+    [assetIG copyCGImageAtTime:CMTimeMake(thumbnailImageTime, 60)
+                    actualTime:NULL
+                         error:&igError];
+    
+    if (!thumbnailImageRef)
+        NSLog(@"thumbnailImageGenerationError %@", igError );
+    
+    UIImage *thumbnailImage = thumbnailImageRef
+    ? [[UIImage alloc] initWithCGImage:thumbnailImageRef]
+    : nil;
+    
+    return thumbnailImage;
+}
+
+NSUInteger timerSeconds = 0;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -87,11 +116,25 @@
 
 #pragma mark - private start/stop helper methods
 
+- (void)timerTick {
+    self.timerLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)++timerSeconds];
+}
+
 - (void)_startCapture
 {
     [UIApplication sharedApplication].idleTimerDisabled = YES;
     [[PBJVision sharedInstance] startVideoCapture];
     [_strobeView start];
+    
+    self.timerLabel.hidden = NO;
+    
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0
+                                                  target:self
+                                                selector:@selector(timerTick)
+                                                userInfo:nil
+                                                 repeats:YES];
+    [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSDefaultRunLoopMode];
+    [self.timer fire];
     
     [self.captureButton setBackgroundImage:[UIImage imageNamed:@"record-button-recording"] forState:UIControlStateNormal];
     [self.captureButton setBackgroundImage:[UIImage imageNamed:@"record-button-recording"] forState:UIControlStateHighlighted];
@@ -104,6 +147,8 @@
     [[PBJVision sharedInstance] endVideoCapture];
     [_strobeView stop];
     
+    [self.timer invalidate];
+    
     [self.captureButton setBackgroundImage:[UIImage imageNamed:@"record-button"] forState:UIControlStateNormal];
     [self.captureButton setBackgroundImage:[UIImage imageNamed:@"record-button"] forState:UIControlStateHighlighted];
     [self.captureButton setBackgroundImage:[UIImage imageNamed:@"record-button"] forState:UIControlStateSelected];
@@ -112,6 +157,10 @@
 - (void)_resetCapture
 {
     [_strobeView stop];
+    
+    self.timerLabel.hidden = YES;
+    timerSeconds = 0;
+    self.timerLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)timerSeconds];
     
     [self.captureButton setBackgroundImage:[UIImage imageNamed:@"record-button"] forState:UIControlStateNormal];
     [self.captureButton setBackgroundImage:[UIImage imageNamed:@"record-button"] forState:UIControlStateHighlighted];
@@ -134,6 +183,7 @@
     [vision setFocusMode:PBJFocusModeContinuousAutoFocus];
     [vision setOutputFormat:PBJOutputFormatSquare];
     [vision setVideoRenderingEnabled:YES];
+    [vision setThumbnailEnabled:YES];
 }
 
 #pragma mark - UIButton
@@ -171,6 +221,28 @@
 
 - (IBAction)handleTapGesterRecognizer:(UIGestureRecognizer *)gestureRecognizer {
     [[PBJVision sharedInstance] capturePhoto];
+}
+
+- (IBAction)handleFocusTapGesterRecognizer:(UIGestureRecognizer *)gestureRecognizer
+{
+    CGPoint tapPoint = [gestureRecognizer locationInView:self.previewView];
+    
+    // auto focus is occuring, display focus view
+    CGPoint point = tapPoint;
+    
+    CGRect focusFrame = self.focusView.frame;
+#if defined(__LP64__) && __LP64__
+    focusFrame.origin.x = rint(point.x - (focusFrame.size.width * 0.5));
+    focusFrame.origin.y = rint(point.y - (focusFrame.size.height * 0.5));
+#else
+    focusFrame.origin.x = rintf(point.x - (focusFrame.size.width * 0.5f));
+    focusFrame.origin.y = rintf(point.y - (focusFrame.size.height * 0.5f));
+#endif
+    [self.focusView setFrame:focusFrame];
+    [self.focusView startAnimation];
+    
+    CGPoint adjustPoint = [PBJVisionUtilities convertToPointOfInterestFromViewCoordinates:tapPoint inFrame:self.previewView.frame];
+    [[PBJVision sharedInstance] focusExposeAndAdjustWhiteBalanceAtAdjustedPoint:adjustPoint];
 }
 
 #pragma mark - PBJVisionDelegate
@@ -250,6 +322,7 @@
 
 - (void)visionDidStopFocus:(PBJVision *)vision
 {
+    [self.focusView stopAnimation];
 }
 
 - (void)visionWillChangeExposure:(PBJVision *)vision
@@ -258,6 +331,7 @@
 
 - (void)visionDidChangeExposure:(PBJVision *)vision
 {
+    [self.focusView stopAnimation];
 }
 
 // flash
@@ -288,6 +362,13 @@
     }
     
     _currentPhoto = photoDict;
+    _currentVideo = nil;
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Photo Captured!" message: @"The photo has been captured. Press Next to send it to your friends"
+                                                   delegate:self
+                                          cancelButtonTitle:nil
+                                          otherButtonTitles:@"OK", nil];
+    [alert show];
 }
 
 // video capture
@@ -317,12 +398,28 @@
     [_strobeView stop];
     
     _currentVideo = videoDict;
+    _currentPhoto = nil;
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Video Captured!" message: @"The video has been captured. Press Next to send it to your friends"
-                                                   delegate:self
-                                          cancelButtonTitle:nil
-                                          otherButtonTitles:@"OK", nil];
+    UIAlertView *alert;
+    if ([[_currentVideo objectForKey:PBJVisionVideoCapturedDurationKey] integerValue] < 1.5) {
+        alert = [[UIAlertView alloc] initWithTitle: @"Photo Captured!"
+                                           message: @"The photo has been captured. Press Next to send it to your friends"
+                                          delegate:self
+                                 cancelButtonTitle:nil
+                                 otherButtonTitles:@"OK", nil];
+    } else {
+        alert = [[UIAlertView alloc] initWithTitle: @"Video Captured!"
+                                           message: @"The video has been captured. Press Next to send it to your friends"
+                                          delegate:self
+                                 cancelButtonTitle:nil
+                                 otherButtonTitles:@"OK", nil];
+    }
+    
     [alert show];
+    
+    self.timerLabel.hidden = YES;
+    timerSeconds = 0;
+    self.timerLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)timerSeconds];
 }
 
 // progress
@@ -348,21 +445,42 @@
     if([segue.identifier isEqualToString:@"SelectFriendsSegue"])
     {
         YDSelectFriendsTableViewController *selectFriendsTVC = segue.destinationViewController;
-        NSString *videoPath = [_currentVideo  objectForKey:PBJVisionVideoPathKey];
-        NSData *data = [[NSFileManager defaultManager] contentsAtPath:videoPath];
-        selectFriendsTVC.videoData = data;
+        
+        if (_currentVideo) {
+            NSString *videoPath = [_currentVideo  objectForKey:PBJVisionVideoPathKey];
+            
+            if ([[_currentVideo objectForKey:PBJVisionVideoCapturedDurationKey] integerValue] < 1.5) {
+                UIImage *image = [YDSnapViewController thumbnailImageForVideo:[NSURL fileURLWithPath:videoPath] atTime:0];
+                selectFriendsTVC.photoData = UIImagePNGRepresentation(image);
+            } else {
+                NSData *data = [[NSFileManager defaultManager] contentsAtPath:videoPath];
+                selectFriendsTVC.videoData = data;
+            }
+        }
     }
 }
+
+
 
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
     if([identifier isEqualToString:@"SelectFriendsSegue"])
     {
-        if (!_currentVideo) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"No Video!" message: @"Please capture a video before pressing next"
-                                                           delegate:self
-                                                  cancelButtonTitle:nil
-                                                  otherButtonTitles:@"OK", nil];
+        if (!_currentVideo && !_currentPhoto) {
+            UIAlertView *alert;
+            if (!_currentVideo) {
+                alert = [[UIAlertView alloc] initWithTitle: @"No Video!"
+                                                   message: @"Please capture a video before pressing next"
+                                                  delegate:self
+                                         cancelButtonTitle:nil
+                                         otherButtonTitles:@"OK", nil];
+            } else {
+                alert = [[UIAlertView alloc] initWithTitle: @"No Photo!"
+                                                   message: @"Please capture a photo before pressing next"
+                                                  delegate:self
+                                         cancelButtonTitle:nil
+                                         otherButtonTitles:@"OK", nil];
+            }
             [alert show];
             return NO;
         }

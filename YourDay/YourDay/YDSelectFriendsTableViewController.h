@@ -11,5 +11,6 @@
 @interface YDSelectFriendsTableViewController : UITableViewController
 
 @property (nonatomic, strong) NSData *videoData;
+@property (nonatomic, strong) NSData *photoData;
 
 @end

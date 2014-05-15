@@ -14,6 +14,7 @@
 		63EF04D419204908004A3B24 /* YDMessageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EF04D319204908004A3B24 /* YDMessageTableViewController.m */; };
 		69175394192035AC00A31163 /* YDUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 69175393192035AC00A31163 /* YDUser.m */; };
 		691753971920364F00A31163 /* YDMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 691753961920364F00A31163 /* YDMessage.m */; };
+		695B9675192490BC0040E48A /* PBJFocusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 695B9674192490BC0040E48A /* PBJFocusView.m */; };
 		69C264161920338C00862783 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69C264151920338C00862783 /* Foundation.framework */; };
 		69C264181920338C00862783 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69C264171920338C00862783 /* CoreGraphics.framework */; };
 		69C2641A1920338C00862783 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69C264191920338C00862783 /* UIKit.framework */; };
@@ -71,6 +72,8 @@
 		69175393192035AC00A31163 /* YDUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YDUser.m; path = Models/YDUser.m; sourceTree = "<group>"; };
 		691753951920364F00A31163 /* YDMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YDMessage.h; path = Models/YDMessage.h; sourceTree = "<group>"; };
 		691753961920364F00A31163 /* YDMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YDMessage.m; path = Models/YDMessage.m; sourceTree = "<group>"; };
+		695B9673192490BC0040E48A /* PBJFocusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBJFocusView.h; sourceTree = "<group>"; };
+		695B9674192490BC0040E48A /* PBJFocusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBJFocusView.m; sourceTree = "<group>"; };
 		69C264121920338C00862783 /* YourDay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YourDay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69C264151920338C00862783 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		69C264171920338C00862783 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -208,6 +211,8 @@
 				69E2BF6919205E2A00CBDF8D /* Main.storyboard */,
 				69E2BF6619205DA900CBDF8D /* PBJStrobeView.h */,
 				69E2BF6719205DA900CBDF8D /* PBJStrobeView.m */,
+				695B9673192490BC0040E48A /* PBJFocusView.h */,
+				695B9674192490BC0040E48A /* PBJFocusView.m */,
 				69C264241920338C00862783 /* YDAppDelegate.h */,
 				69C264251920338C00862783 /* YDAppDelegate.m */,
 				691753901920356E00A31163 /* Models */,
@@ -424,6 +429,7 @@
 				69E2BF6519205D5A00CBDF8D /* YDSnapViewController.m in Sources */,
 				69C264261920338C00862783 /* YDAppDelegate.m in Sources */,
 				69175394192035AC00A31163 /* YDUser.m in Sources */,
+				695B9675192490BC0040E48A /* PBJFocusView.m in Sources */,
 				69E2BF6419205D5A00CBDF8D /* YDSelectFriendsTableViewController.m in Sources */,
 				691753971920364F00A31163 /* YDMessage.m in Sources */,
 			);

@@ -157,14 +157,20 @@ NSUInteger count = 0;
         
         @try {
             NSDictionary *value = (NSDictionary *)snapshot.value;
-            NSData *videoData = [NSData base64DataFromString:(NSString *)[value objectForKey:@"video"]];
-            
-            NSArray *dirPaths= NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-            NSString *docsDir= [dirPaths objectAtIndex:0];
-            NSString *databasePath = [[NSString alloc] initWithString: [docsDir stringByAppendingPathComponent:[NSString stringWithFormat:@"video%d.mp4", count++]]];
-            [videoData writeToFile:databasePath atomically:YES];
-            
-            [self addMessage:[[XHMessage alloc] initWithVideoConverPhoto:[UIImage imageNamed:@"play"] videoPath:databasePath videoUrl:nil sender:@"Jack Smith" timestamp:[NSDate date]]];
+            if ([value objectForKey:@"video"]) {
+                NSData *videoData = [NSData base64DataFromString:(NSString *)[value objectForKey:@"video"]];
+                
+                NSArray *dirPaths= NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+                NSString *docsDir= [dirPaths objectAtIndex:0];
+                NSString *databasePath = [[NSString alloc] initWithString: [docsDir stringByAppendingPathComponent:[NSString stringWithFormat:@"video%d.mp4", count++]]];
+                [videoData writeToFile:databasePath atomically:YES];
+                
+                [self addMessage:[[XHMessage alloc] initWithVideoConverPhoto:[UIImage imageNamed:@"play"] videoPath:databasePath videoUrl:nil sender:@"Jack Smith" timestamp:[NSDate date]]];
+            } else {
+                NSData *photoData = [NSData base64DataFromString:(NSString *)[value objectForKey:@"photo"]];
+                
+                [self addMessage:[[XHMessage alloc] initWithPhoto:[UIImage imageWithData:photoData] thumbnailUrl:nil originPhotoUrl:nil sender:@"Jack Smith" timestamp:[NSDate date]]];
+            }
             
         }
         @catch (NSException * e) {
