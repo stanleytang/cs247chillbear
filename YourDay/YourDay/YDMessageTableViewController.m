@@ -175,7 +175,7 @@ NSUInteger count = 0;
         }
     }];
     
-    [self loadDemoDataSource];
+    //[self loadDemoDataSource];
 }
 
 - (void)didReceiveMemoryWarning

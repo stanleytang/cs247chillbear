@@ -10,4 +10,9 @@
 
 @implementation YDUser
 
+- (NSString *)getUserFullNameFor:(YDUser *)user
+{
+    return [[user.firstName stringByAppendingString:@" "] stringByAppendingString:user.lastName];
+}
+
 @end

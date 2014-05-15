@@ -13,4 +13,6 @@
 @property (nonatomic, strong) NSString *firstName;
 @property (nonatomic, strong) NSString *lastName;
 
+- (NSString *)getUserFullNameFor:(YDUser *)user;
+
 @end
