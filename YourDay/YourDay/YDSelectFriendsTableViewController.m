@@ -121,12 +121,13 @@
     if([segue.identifier isEqualToString:@"SendSnap"])
     {
         Firebase* nameRef = [[Firebase alloc] initWithUrl:@"https://dazzling-fire-7228.firebaseio.com/"];
+        Firebase *listRef = [nameRef childByAutoId];
         if (self.videoData) {
             NSString *videoString = [NSString base64StringFromData:self.videoData length:[self.videoData length]];
-            [nameRef setValue:[NSDictionary dictionaryWithObjectsAndKeys:@"Andy Mai", @"name", videoString, @"video", nil]];
+            [listRef setValue:[NSDictionary dictionaryWithObjectsAndKeys:@"Andy Mai", @"name", videoString, @"video", nil]];
         } else {
             NSString *imageString = [NSString base64StringFromData:self.photoData length:[self.photoData length]];
-            [nameRef setValue:[NSDictionary dictionaryWithObjectsAndKeys:@"Andy Mai", @"name", imageString, @"photo", nil]];
+            [listRef setValue:[NSDictionary dictionaryWithObjectsAndKeys:@"Andy Mai", @"name", imageString, @"photo", nil]];
         }
     }
 }

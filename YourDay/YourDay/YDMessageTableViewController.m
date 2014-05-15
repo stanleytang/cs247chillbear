@@ -151,9 +151,11 @@ NSUInteger count = 0;
     self.shareMenuItems = shareMenuItems;
     [self.shareMenuView reloadData];
     
+    WEAKSELF
+    
     Firebase* f = [[Firebase alloc] initWithUrl:@"https://dazzling-fire-7228.firebaseio.com/"];
-    [f observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
-        NSLog(@"%@ -> %@", snapshot.name, snapshot.value);
+    [f observeEventType:FEventTypeChildAdded withBlock:^(FDataSnapshot *snapshot) {
+        NSMutableArray *tempMessages = [NSMutableArray arrayWithArray:self.messages];
         
         @try {
             NSDictionary *value = (NSDictionary *)snapshot.value;
@@ -165,11 +167,11 @@ NSUInteger count = 0;
                 NSString *databasePath = [[NSString alloc] initWithString: [docsDir stringByAppendingPathComponent:[NSString stringWithFormat:@"video%d.mp4", count++]]];
                 [videoData writeToFile:databasePath atomically:YES];
                 
-                [self addMessage:[[XHMessage alloc] initWithVideoConverPhoto:[UIImage imageNamed:@"play"] videoPath:databasePath videoUrl:nil sender:@"Jack Smith" timestamp:[NSDate date]]];
+                [tempMessages addObject:[[XHMessage alloc] initWithVideoConverPhoto:[UIImage imageNamed:@"play"] videoPath:databasePath videoUrl:nil sender:@"Jack Smith" timestamp:[NSDate date]]];
             } else {
                 NSData *photoData = [NSData base64DataFromString:(NSString *)[value objectForKey:@"photo"]];
                 
-                [self addMessage:[[XHMessage alloc] initWithPhoto:[UIImage imageWithData:photoData] thumbnailUrl:nil originPhotoUrl:nil sender:@"Jack Smith" timestamp:[NSDate date]]];
+                [tempMessages addObject:[[XHMessage alloc] initWithPhoto:[UIImage imageWithData:photoData] thumbnailUrl:nil originPhotoUrl:nil sender:@"Jack Smith" timestamp:[NSDate date]]];
             }
             
         }
@@ -178,6 +180,11 @@ NSUInteger count = 0;
         }
         @finally {
             NSLog(@"finally");
+            
+                self.messages = tempMessages;
+                [self.messageTableView reloadData];
+                
+                [self scrollToBottomAnimated:NO];
         }
     }];
     
