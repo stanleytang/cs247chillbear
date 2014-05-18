@@ -16,7 +16,7 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <GLKit/GLKit.h>
 
-@interface YDSnapViewController () <UIGestureRecognizerDelegate, PBJVisionDelegate> {
+@interface YDSnapViewController () <UIGestureRecognizerDelegate, PBJVisionDelegate, UIAlertViewDelegate> {
     AVCaptureVideoPreviewLayer *_previewLayer;
     
     ALAssetsLibrary *_assetLibrary;
@@ -416,16 +416,18 @@ NSUInteger timerSeconds = 0;
     UIAlertView *alert;
     if ([[_currentVideo objectForKey:PBJVisionVideoCapturedDurationKey] integerValue] < 1) {
         alert = [[UIAlertView alloc] initWithTitle: @"Photo Captured!"
-                                           message: @"The photo has been captured. Press Next to send it to your friends"
+                                           message:nil
                                           delegate:self
-                                 cancelButtonTitle:nil
-                                 otherButtonTitles:@"OK", nil];
+                                 cancelButtonTitle:@"Retake"
+                                 otherButtonTitles:@"Send Photo", nil];
+        alert.delegate = self;
     } else {
         alert = [[UIAlertView alloc] initWithTitle: @"Video Captured!"
-                                           message: @"The video has been captured. Press Next to send it to your friends"
+                                           message:nil
                                           delegate:self
-                                 cancelButtonTitle:nil
-                                 otherButtonTitles:@"OK", nil];
+                                 cancelButtonTitle:@"Retake"
+                                 otherButtonTitles:@"Send Video", nil];
+        alert.delegate = self;
     }
     
     [alert show];
@@ -447,6 +449,13 @@ NSUInteger timerSeconds = 0;
     //    NSLog(@"captured video (%f) seconds", vision.capturedVideoSeconds);
 }
 
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
+        
+    } else {
+        [self performSegueWithIdentifier:@"SelectFriendsSegue" sender:self];
+    }
+}
 
 #pragma mark - Navigation
 
@@ -472,9 +481,6 @@ NSUInteger timerSeconds = 0;
         }
     }
 }
-
-
-
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
     if([identifier isEqualToString:@"SelectFriendsSegue"])

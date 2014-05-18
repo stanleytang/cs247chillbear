@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Bqn-QM-H1M">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Bqn-QM-H1M">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -127,7 +127,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Inbox Cell" id="HWa-FJ-wba">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HWa-FJ-wba" id="jBO-F3-pyP">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
@@ -225,13 +225,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Snap" id="kaV-FB-y5r">
-                        <barButtonItem key="rightBarButtonItem" title="Next" id="ptO-jz-f6r">
-                            <connections>
-                                <segue destination="sf5-sd-mey" kind="push" identifier="SelectFriendsSegue" id="lQp-ht-la9"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Snap" id="kaV-FB-y5r"/>
                     <connections>
                         <outlet property="captureButton" destination="ulm-il-Ydq" id="gCM-ss-OQ8"/>
                         <outlet property="flipButton" destination="nSu-se-3MU" id="Mb5-7v-Es9"/>
@@ -242,6 +236,7 @@
                         <outlet property="previewView" destination="Ta0-Cz-ZiK" id="YM6-qF-82h"/>
                         <outlet property="tapGestureRecognizer" destination="Ili-Eo-4Jo" id="xwN-cD-rOR"/>
                         <outlet property="timerLabel" destination="4Wx-2E-lPe" id="Bow-57-Cmj"/>
+                        <segue destination="sf5-sd-mey" kind="push" identifier="SelectFriendsSegue" id="Ls9-L7-aHm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O1Y-Jg-fLE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -276,7 +271,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SelectFriendsCell" id="JrD-yA-wJC">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JrD-yA-wJC" id="QNZ-nS-ukS">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
