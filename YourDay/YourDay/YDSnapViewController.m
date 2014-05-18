@@ -84,6 +84,8 @@ NSUInteger timerSeconds = 0;
     self.strobeView.backgroundColor = [UIColor clearColor];
     [self.view addSubview:self.strobeView];
     
+    self.strobeView.hidden = YES;
+    
     // preview and AV layer
     _previewLayer = [[PBJVision sharedInstance] previewLayer];
     _previewLayer.frame = self.previewView.bounds;
@@ -125,6 +127,8 @@ NSUInteger timerSeconds = 0;
     [UIApplication sharedApplication].idleTimerDisabled = YES;
     [[PBJVision sharedInstance] startVideoCapture];
     [_strobeView start];
+    self.strobeView.hidden = NO;
+    self.instructionLabel.hidden = YES;
     
     self.timerLabel.hidden = NO;
     
@@ -146,6 +150,8 @@ NSUInteger timerSeconds = 0;
     [UIApplication sharedApplication].idleTimerDisabled = NO;
     [[PBJVision sharedInstance] endVideoCapture];
     [_strobeView stop];
+    self.strobeView.hidden = YES;
+    self.instructionLabel.hidden = NO;
     
     [self.timer invalidate];
     
@@ -401,6 +407,8 @@ NSUInteger timerSeconds = 0;
     }
     
     [_strobeView stop];
+    self.strobeView.hidden = YES;
+    self.instructionLabel.hidden = NO;
     
     _currentVideo = videoDict;
     _currentPhoto = nil;
