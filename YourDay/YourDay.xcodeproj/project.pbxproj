@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		632334DC192315A60061D091 /* YDSettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 632334DB192315A60061D091 /* YDSettingsTableViewController.m */; };
 		632334DF19231EB70061D091 /* YDFreqSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 632334DE19231EB70061D091 /* YDFreqSettingViewController.m */; };
+		632334E11924BE4A0061D091 /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 632334E01924BE4A0061D091 /* camera.png */; };
 		63D36A134A5E4D948B667911 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C818D0F6D764D4A8E19C0E7 /* libPods.a */; };
 		63EF04CE19203C08004A3B24 /* YDInboxTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EF04CD19203C08004A3B24 /* YDInboxTableViewController.m */; };
 		63EF04D419204908004A3B24 /* YDMessageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EF04D319204908004A3B24 /* YDMessageTableViewController.m */; };
@@ -64,6 +65,7 @@
 		632334DB192315A60061D091 /* YDSettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDSettingsTableViewController.m; sourceTree = "<group>"; };
 		632334DD19231EB70061D091 /* YDFreqSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDFreqSettingViewController.h; sourceTree = "<group>"; };
 		632334DE19231EB70061D091 /* YDFreqSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDFreqSettingViewController.m; sourceTree = "<group>"; };
+		632334E01924BE4A0061D091 /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera.png; sourceTree = "<group>"; };
 		63EF04CC19203C08004A3B24 /* YDInboxTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDInboxTableViewController.h; sourceTree = "<group>"; };
 		63EF04CD19203C08004A3B24 /* YDInboxTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDInboxTableViewController.m; sourceTree = "<group>"; };
 		63EF04D219204908004A3B24 /* YDMessageTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDMessageTableViewController.h; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 		69E2BF4719205D3C00CBDF8D /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				632334E01924BE4A0061D091 /* camera.png */,
 				69E2BF6E19206C5A00CBDF8D /* play@2x.png */,
 				69E2BF4819205D4C00CBDF8D /* capture_flip@2x.png */,
 				69E2BF4919205D4C00CBDF8D /* capture_focus_button_active@2x.png */,
@@ -353,6 +356,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				69E2BF5819205D4C00CBDF8D /* capture_onion_selected@2x.png in Resources */,
+				632334E11924BE4A0061D091 /* camera.png in Resources */,
 				69E2BF6F19206C5A00CBDF8D /* play@2x.png in Resources */,
 				69E2BF5E19205D4C00CBDF8D /* record-button-recording@2x.png in Resources */,
 				69E2BF5D19205D4C00CBDF8D /* capture_yep@2x.png in Resources */,

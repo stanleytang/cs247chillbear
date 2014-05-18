@@ -26,6 +26,20 @@
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    
+    NSDate *alertTime = [[NSDate date]
+                         dateByAddingTimeInterval:5];
+    UIApplication* app = [UIApplication sharedApplication];
+    UILocalNotification* notifyAlarm = [[UILocalNotification alloc]
+                                        init];
+    if (notifyAlarm)
+    {
+        notifyAlarm.fireDate = alertTime;
+        notifyAlarm.timeZone = [NSTimeZone defaultTimeZone];
+        notifyAlarm.repeatInterval = 0;
+        notifyAlarm.alertBody = @"Time to catch up with Andy!";
+        [app scheduleLocalNotification:notifyAlarm];
+    }
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application

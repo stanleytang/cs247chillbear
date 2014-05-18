@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface YDSettingsTableViewController : UITableViewController
-
+@property(strong, nonatomic) NSArray *contacts;
+@property(strong, nonatomic) NSMutableDictionary *frequencies;
 @end

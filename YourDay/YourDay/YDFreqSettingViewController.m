@@ -7,14 +7,16 @@
 //
 
 #import "YDFreqSettingViewController.h"
+#import "YDSettingsTableViewController.h"
 
 @interface YDFreqSettingViewController ()
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *currFreqLabel;
-@property (weak, nonatomic) IBOutlet UIButton *saveButton;
 @property (weak, nonatomic) IBOutlet UIPickerView *freqPicker;
 @property (strong, nonatomic) NSArray *freqSelections;
+@property (strong, nonatomic) NSString *updatedFrequency;
+@property (weak, nonatomic) IBOutlet UILabel *savedLabel;
 
 @end
 
@@ -54,6 +56,7 @@
     
     self.nameLabel.text = self.name;
     self.currFreqLabel.text = self.currFrequency;
+    self.savedLabel.text = nil;
     self.freqPicker.delegate = self;
     self.freqPicker.showsSelectionIndicator = YES;
     
@@ -71,6 +74,12 @@
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow: (NSInteger)row inComponent:(NSInteger)component {
     // Handle the selection
+    
+    NSUInteger numberOfViewControllers = self.navigationController.viewControllers.count;
+    YDSettingsTableViewController *settingsTVC = [self.navigationController.viewControllers objectAtIndex:numberOfViewControllers-2];
+    
+    settingsTVC.frequencies[self.name] = self.freqSelections[row];
+    self.savedLabel.text = @"Saved!";
 }
 
 // tell the picker how many rows are available for a given component
@@ -97,7 +106,6 @@
 }
 
 
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -105,7 +113,23 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+    if ([segue.identifier isEqualToString:@"Save Frequency"]) {
+        if ([segue.destinationViewController isKindOfClass:[YDSettingsTableViewController class]]) {
+            YDSettingsTableViewController *settingsTVC = (YDSettingsTableViewController *)segue.destinationViewController;
+            NSArray *times = @[@"every day", @"every week", @"every day", @"every month"];
+            NSArray *contacts = @[@"Andy Mai", @"Stanley Tang", @"Daniel Noe", @"Trent Murphy"];
+            
+            NSMutableDictionary *frequencies = [[NSMutableDictionary alloc] init];
+            for (NSUInteger i = 0; i < [contacts count]; i++) {
+                frequencies[[contacts objectAtIndex:i]] = [times objectAtIndex:i];
+            }
+            
+            settingsTVC.frequencies = frequencies;
+        }
+    }
+
+    
 }
-*/
 
 @end

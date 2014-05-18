@@ -8,6 +8,7 @@
 
 #import "YDInboxTableViewController.h"
 #import "YDMessageTableViewController.h"
+#import "YDSettingsTableViewController.h"
 
 @interface YDInboxTableViewController ()
 @property (strong, nonatomic) NSArray *users;
@@ -124,6 +125,22 @@
                     dstController.userName = userName;
                 }
             }
+        }
+    }
+    
+    if ([segue.identifier isEqualToString:@"Settings"]) {
+        if ([segue.destinationViewController isKindOfClass:[YDSettingsTableViewController class]]) {
+            YDSettingsTableViewController *settingsTVC = (YDSettingsTableViewController *)segue.destinationViewController;
+            NSArray *times = @[@"every day", @"every week", @"every day", @"every month"];
+            NSArray *contacts = @[@"Andy Mai", @"Stanley Tang", @"Daniel Noe", @"Trent Murphy"];
+            
+            NSMutableDictionary *frequencies = [[NSMutableDictionary alloc] init];
+            for (NSUInteger i = 0; i < [contacts count]; i++) {
+                frequencies[[contacts objectAtIndex:i]] = [times objectAtIndex:i];
+            }
+            
+            settingsTVC.contacts = contacts;
+            settingsTVC.frequencies = frequencies;
         }
     }
 
