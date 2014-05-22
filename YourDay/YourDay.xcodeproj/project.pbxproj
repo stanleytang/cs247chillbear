@@ -142,6 +142,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		63BF2628192974CB001DBA33 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
 		691753901920356E00A31163 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -219,8 +226,9 @@
 				69C264251920338C00862783 /* YDAppDelegate.m */,
 				691753901920356E00A31163 /* Models */,
 				691753911920357400A31163 /* Controllers */,
-				69C2642D1920338C00862783 /* Images.xcassets */,
+				63BF2628192974CB001DBA33 /* Libraries */,
 				69C2641C1920338C00862783 /* Supporting Files */,
+				69C2642D1920338C00862783 /* Images.xcassets */,
 			);
 			path = YourDay;
 			sourceTree = "<group>";
@@ -338,6 +346,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 69C264091920338B00862783;
 			productRefGroup = 69C264131920338C00862783 /* Products */;

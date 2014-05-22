@@ -144,7 +144,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Inbox" id="Ncr-cp-or6">
-                        <barButtonItem key="leftBarButtonItem" title="Settings" id="3rM-Uy-fyA">
+                        <barButtonItem key="leftBarButtonItem" title="Contacts" id="3rM-Uy-fyA">
                             <connections>
                                 <segue destination="3zM-vQ-3Ha" kind="push" identifier="Settings" id="Mwq-yN-PVx"/>
                             </connections>
@@ -302,7 +302,13 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="av4-yO-lky"/>
+                    <navigationItem key="navigationItem" id="av4-yO-lky">
+                        <barButtonItem key="rightBarButtonItem" image="camera.png" id="Ggj-mC-kWM">
+                            <connections>
+                                <segue destination="dPP-ig-vpO" kind="push" id="oEV-xy-b3K"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G9h-E8-KZj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -340,5 +346,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="ZgP-sF-hYY"/>
+        <segue reference="oEV-xy-b3K"/>
     </inferredMetricsTieBreakers>
 </document>
