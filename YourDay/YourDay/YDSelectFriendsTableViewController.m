@@ -10,6 +10,7 @@
 
 #import <Firebase/Firebase.h>
 #import "NSStrinAdditions.h"
+#import "YDMessageTableViewController.h"
 
 @interface YDSelectFriendsTableViewController ()
 
@@ -66,6 +67,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SelectFriendsCell" forIndexPath:indexPath];
     
     cell.textLabel.text = self.users[indexPath.row];
+    cell.textLabel.textColor = [UIColor darkGrayColor];
     
     return cell;
 }
@@ -135,6 +137,9 @@
             NSString *imageString = [NSString base64StringFromData:self.photoData length:[self.photoData length]];
             [listRef setValue:[NSDictionary dictionaryWithObjectsAndKeys:@"Andy Mai", @"name", imageString, @"photo", nil]];
         }
+        
+        YDMessageTableViewController *dstVC = (YDMessageTableViewController *)segue.destinationViewController;
+        dstVC.userName = userName;
     }
 }
 @end

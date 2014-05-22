@@ -25,6 +25,10 @@
     
     [[UINavigationBar appearance] setBarStyle:UIBarStyleBlack];
     
+    [self.window makeKeyAndVisible];
+    UINavigationController *rootNav = (UINavigationController *)self.window.rootViewController;
+    [[rootNav.viewControllers firstObject] performSegueWithIdentifier:@"quickStartSegue" sender:self];
+    
     return YES;
 }
 							
@@ -49,7 +53,7 @@
         notifyAlarm.fireDate = alertTime;
         notifyAlarm.timeZone = [NSTimeZone defaultTimeZone];
         notifyAlarm.repeatInterval = 0;
-        notifyAlarm.alertBody = @"Andy just poked you! Update him on your day";
+        notifyAlarm.alertBody = @"Don't forget to choose a moment to share with Andy!";
         [app scheduleLocalNotification:notifyAlarm];
     }
 }

@@ -13,6 +13,7 @@
 		63D36A134A5E4D948B667911 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C818D0F6D764D4A8E19C0E7 /* libPods.a */; };
 		63EF04CE19203C08004A3B24 /* YDInboxTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EF04CD19203C08004A3B24 /* YDInboxTableViewController.m */; };
 		63EF04D419204908004A3B24 /* YDMessageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EF04D319204908004A3B24 /* YDMessageTableViewController.m */; };
+		63F570D9192DDA3C005F9991 /* YDQuickStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F570D8192DDA3C005F9991 /* YDQuickStartViewController.m */; };
 		69175394192035AC00A31163 /* YDUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 69175393192035AC00A31163 /* YDUser.m */; };
 		691753971920364F00A31163 /* YDMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 691753961920364F00A31163 /* YDMessage.m */; };
 		695B9675192490BC0040E48A /* PBJFocusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 695B9674192490BC0040E48A /* PBJFocusView.m */; };
@@ -70,6 +71,8 @@
 		63EF04CD19203C08004A3B24 /* YDInboxTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDInboxTableViewController.m; sourceTree = "<group>"; };
 		63EF04D219204908004A3B24 /* YDMessageTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDMessageTableViewController.h; sourceTree = "<group>"; };
 		63EF04D319204908004A3B24 /* YDMessageTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDMessageTableViewController.m; sourceTree = "<group>"; };
+		63F570D7192DDA3C005F9991 /* YDQuickStartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDQuickStartViewController.h; sourceTree = "<group>"; };
+		63F570D8192DDA3C005F9991 /* YDQuickStartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDQuickStartViewController.m; sourceTree = "<group>"; };
 		69175392192035AC00A31163 /* YDUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YDUser.h; path = Models/YDUser.h; sourceTree = "<group>"; };
 		69175393192035AC00A31163 /* YDUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YDUser.m; path = Models/YDUser.m; sourceTree = "<group>"; };
 		691753951920364F00A31163 /* YDMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YDMessage.h; path = Models/YDMessage.h; sourceTree = "<group>"; };
@@ -165,6 +168,8 @@
 			children = (
 				69C2642A1920338C00862783 /* YDViewController.h */,
 				69C2642B1920338C00862783 /* YDViewController.m */,
+				63F570D7192DDA3C005F9991 /* YDQuickStartViewController.h */,
+				63F570D8192DDA3C005F9991 /* YDQuickStartViewController.m */,
 				63EF04CC19203C08004A3B24 /* YDInboxTableViewController.h */,
 				63EF04CD19203C08004A3B24 /* YDInboxTableViewController.m */,
 				69E2BF6019205D5A00CBDF8D /* YDSelectFriendsTableViewController.h */,
@@ -434,6 +439,7 @@
 			files = (
 				632334DF19231EB70061D091 /* YDFreqSettingViewController.m in Sources */,
 				69E2BF6819205DA900CBDF8D /* PBJStrobeView.m in Sources */,
+				63F570D9192DDA3C005F9991 /* YDQuickStartViewController.m in Sources */,
 				69C264221920338C00862783 /* main.m in Sources */,
 				63EF04CE19203C08004A3B24 /* YDInboxTableViewController.m in Sources */,
 				632334DC192315A60061D091 /* YDSettingsTableViewController.m in Sources */,

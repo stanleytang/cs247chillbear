@@ -83,6 +83,9 @@
     
     cell.textLabel.text = self.contacts[indexPath.row];
     cell.detailTextLabel.text = self.frequencies[self.contacts[indexPath.row]];
+    cell.textLabel.textColor = [UIColor darkGrayColor];
+    cell.detailTextLabel.textColor = [UIColor darkGrayColor];
+    
     return cell;
 }
 

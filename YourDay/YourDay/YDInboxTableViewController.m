@@ -65,6 +65,7 @@
     // Configure the cell...
     
     cell.textLabel.text = self.users[indexPath.row];
+    cell.textLabel.textColor = [UIColor darkGrayColor];
     
     return cell;
 }
