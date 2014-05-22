@@ -139,7 +139,7 @@
         }
         
         YDMessageTableViewController *dstVC = (YDMessageTableViewController *)segue.destinationViewController;
-        dstVC.userName = userName;
+        dstVC.userName = self.users[indexPath.row];
     }
 }
 @end
