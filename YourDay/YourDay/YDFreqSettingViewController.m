@@ -7,7 +7,7 @@
 //
 
 #import "YDFreqSettingViewController.h"
-#import "YDSettingsTableViewController.h"
+#import "YDContactsTableViewController.h"
 
 @interface YDFreqSettingViewController ()
 
@@ -76,7 +76,7 @@
     // Handle the selection
     
     NSUInteger numberOfViewControllers = self.navigationController.viewControllers.count;
-    YDSettingsTableViewController *settingsTVC = [self.navigationController.viewControllers objectAtIndex:numberOfViewControllers-2];
+    YDContactsTableViewController *settingsTVC = [self.navigationController.viewControllers objectAtIndex:numberOfViewControllers-2];
     
     settingsTVC.frequencies[self.name] = self.freqSelections[row];
     self.savedLabel.text = @"Saved!";
@@ -115,8 +115,8 @@
     // Pass the selected object to the new view controller.
     
     if ([segue.identifier isEqualToString:@"Save Frequency"]) {
-        if ([segue.destinationViewController isKindOfClass:[YDSettingsTableViewController class]]) {
-            YDSettingsTableViewController *settingsTVC = (YDSettingsTableViewController *)segue.destinationViewController;
+        if ([segue.destinationViewController isKindOfClass:[YDContactsTableViewController class]]) {
+            YDContactsTableViewController *settingsTVC = (YDContactsTableViewController *)segue.destinationViewController;
             NSArray *times = @[@"every day", @"every week", @"every day", @"every month"];
             NSArray *contacts = @[@"Andy Mai", @"Stanley Tang", @"Daniel Noe", @"Trent Murphy"];
             

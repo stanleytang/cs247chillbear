@@ -8,7 +8,7 @@
 
 #import "YDInboxTableViewController.h"
 #import "YDMessageTableViewController.h"
-#import "YDSettingsTableViewController.h"
+#import "YDContactsTableViewController.h"
 
 @interface YDInboxTableViewController ()
 @property (strong, nonatomic) NSArray *users;
@@ -130,8 +130,8 @@
     }
     
     if ([segue.identifier isEqualToString:@"Settings"]) {
-        if ([segue.destinationViewController isKindOfClass:[YDSettingsTableViewController class]]) {
-            YDSettingsTableViewController *settingsTVC = (YDSettingsTableViewController *)segue.destinationViewController;
+        if ([segue.destinationViewController isKindOfClass:[YDContactsTableViewController class]]) {
+            YDContactsTableViewController *contactsTVC = (YDContactsTableViewController *)segue.destinationViewController;
             NSArray *times = @[@"every day", @"every week", @"every day", @"every month"];
             NSArray *contacts = @[@"Andy Mai", @"Stanley Tang", @"Daniel Noe", @"Trent Murphy"];
             
@@ -140,8 +140,8 @@
                 frequencies[[contacts objectAtIndex:i]] = [times objectAtIndex:i];
             }
             
-            settingsTVC.contacts = contacts;
-            settingsTVC.frequencies = frequencies;
+            contactsTVC.contacts = contacts;
+            contactsTVC.frequencies = frequencies;
         }
     }
 

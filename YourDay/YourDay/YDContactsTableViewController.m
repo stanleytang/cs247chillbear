@@ -2,18 +2,18 @@
 //  YDSettingsTableViewController.m
 //  YourDay
 //
-//  Created by Andy Mai on 5/22/14.
+//  Created by Andy Mai on 5/13/14.
 //  Copyright (c) 2014 ChillBear. All rights reserved.
 //
 
-#import "YDSettingsTableViewController.h"
+#import "YDContactsTableViewController.h"
+#import "YDFreqSettingViewController.h"
 
-@interface YDSettingsTableViewController ()
-@property (weak, nonatomic) IBOutlet UISwitch *notificationSwitch;
+@interface YDContactsTableViewController ()
 
 @end
 
-@implementation YDSettingsTableViewController
+@implementation YDContactsTableViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -33,27 +33,62 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    //self.contacts = @[@"Andy Mai", @"Stanley Tang", @"Daniel Noe", @"Trent Murphy"];
+    //[self.tableView reloadData];
 }
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.tableView reloadData]; // to reload selected cell
+}
+//- (NSMutableDictionary *)frequencies
+//{
+//    if (!_frequencies) {
+//        _frequencies = [[NSMutableDictionary alloc] init];
+//        NSArray *times = @[@"every day", @"every week", @"every day", @"every month"];
+//        
+//        for (NSUInteger i = 0; i < [self.contacts count]; i++) {
+//            _frequencies[[self.contacts objectAtIndex:i]] = [times objectAtIndex:i];
+//        }
+//
+//    }
+//    
+//    return _frequencies;
+//}
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (IBAction)notificationSwitchPressed:(id)sender {
-    
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    // Return the number of sections.
+    return 1;
 }
 
-/*
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    // Return the number of rows in the section.
+    return [self.contacts count];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Contact Cell" forIndexPath:indexPath];
     
     // Configure the cell...
     
+    cell.textLabel.text = self.contacts[indexPath.row];
+    cell.detailTextLabel.text = self.frequencies[self.contacts[indexPath.row]];
+    cell.textLabel.textColor = [UIColor darkGrayColor];
+    cell.detailTextLabel.textColor = [UIColor darkGrayColor];
+    
     return cell;
 }
-*/
 
 /*
 // Override to support conditional editing of the table view.
@@ -93,7 +128,6 @@
 }
 */
 
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -101,7 +135,22 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+    if ([sender isKindOfClass:[UITableViewCell class]]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        if (indexPath) {
+            if ([segue.identifier isEqualToString:@"Edit Frequency"]) {
+                if ([segue.destinationViewController isKindOfClass:[YDFreqSettingViewController class]]) {
+                    YDFreqSettingViewController *dstVC = segue.destinationViewController;
+                    NSString *user = self.contacts[indexPath.row];
+                    dstVC.name = user;
+                    dstVC.currFrequency = self.frequencies[user];
+                }
+            }
+        }
+    }
+
 }
-*/
+
 
 @end

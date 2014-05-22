@@ -4,17 +4,17 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--Settings Table View Controller - Settings-->
+        <!--Contacts Table View Controller - Contacts-->
         <scene sceneID="CZN-yX-ZDf">
             <objects>
-                <tableViewController id="3zM-vQ-3Ha" customClass="YDSettingsTableViewController" sceneMemberID="viewController">
+                <tableViewController title="Contacts" id="3zM-vQ-3Ha" customClass="YDContactsTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="9ap-sf-gvX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" restorationIdentifier="Contact Cell" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Contact Cell" textLabel="Hn5-tD-BHO" detailTextLabel="R0Z-XC-r22" style="IBUITableViewCellStyleSubtitle" id="QuJ-of-0CO">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QuJ-of-0CO" id="UAb-a2-Vrt">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
@@ -46,15 +46,73 @@
                             <outlet property="delegate" destination="3zM-vQ-3Ha" id="OTw-Ec-ask"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Settings" id="A3s-Jh-Pon"/>
+                    <navigationItem key="navigationItem" title="Contacts" id="A3s-Jh-Pon"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Evy-PE-fKC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-230" y="-649"/>
+            <point key="canvasLocation" x="-233" y="-620"/>
+        </scene>
+        <!--Settings Table View Controller - Settings-->
+        <scene sceneID="Qab-yT-BZR">
+            <objects>
+                <tableViewController id="MMB-Nh-fLS" customClass="YDSettingsTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="bxe-x2-EOJ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection headerTitle="Notifications" id="UIb-Vl-AIQ">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="4fV-mI-KW4">
+                                        <rect key="frame" x="0.0" y="55" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4fV-mI-KW4" id="ogb-0M-lzY">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Reminder Notification" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ju-hb-Ul4">
+                                                    <rect key="frame" x="20" y="2" width="167" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Want to receive regular push notifications?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Qk-zu-QJi">
+                                                    <rect key="frame" x="20" y="20" width="235" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3XE-nt-DOY">
+                                                    <rect key="frame" x="251" y="6" width="51" height="31"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <action selector="notificationSwitchPressed:" destination="MMB-Nh-fLS" eventType="valueChanged" id="RaW-Ze-FgC"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="MMB-Nh-fLS" id="l3h-1S-DPa"/>
+                            <outlet property="delegate" destination="MMB-Nh-fLS" id="1eR-Hp-2qf"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Settings" id="lWZ-LN-PRT"/>
+                    <connections>
+                        <outlet property="notificationSwitch" destination="3XE-nt-DOY" id="HtD-ss-NlI"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I2Z-C7-Z2m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-233" y="-1394"/>
         </scene>
         <!--Freq Setting View Controller - Change Frequency-->
         <scene sceneID="LtG-r2-GPJ">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mLZ-SY-ZJf" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="7Af-YC-H75" customClass="YDFreqSettingViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3cG-fy-FgG"/>
@@ -106,7 +164,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Change Frequency" id="sob-ec-5rY"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="currFreqLabel" destination="ctF-Oh-CGz" id="C9u-Cd-N3n"/>
                         <outlet property="freqPicker" destination="XLg-9T-uyB" id="v9B-H0-g7h"/>
@@ -114,7 +174,6 @@
                         <outlet property="savedLabel" destination="JR1-1f-rOW" id="1mH-h0-blK"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mLZ-SY-ZJf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="222" y="-726"/>
         </scene>
@@ -424,8 +483,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="82c-t0-wUV"/>
-        <segue reference="jve-sh-fHA"/>
-        <segue reference="uhT-v0-D49"/>
+        <segue reference="9IR-zU-N2L"/>
+        <segue reference="bEa-BU-Sx2"/>
+        <segue reference="NY5-Px-VZE"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -8,6 +8,8 @@
 
 #import "YDAppDelegate.h"
 
+static int notificationON = 1;
+
 @implementation YDAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -43,6 +45,7 @@
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     
+   
     NSDate *alertTime = [[NSDate date]
                          dateByAddingTimeInterval:5];
     UIApplication* app = [UIApplication sharedApplication];
@@ -56,6 +59,9 @@
         notifyAlarm.alertBody = @"Don't forget to choose a moment to share with Andy!";
         [app scheduleLocalNotification:notifyAlarm];
     }
+   
+
+
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
