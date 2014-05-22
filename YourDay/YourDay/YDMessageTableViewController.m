@@ -85,7 +85,10 @@ NSUInteger count = 0;
 - (Firebase *)firebase
 {
     if (!_firebase) {
-        _firebase = [[Firebase alloc] initWithUrl:@"https://dazzling-fire-7228.firebaseio.com"];
+        self.userName = [self.userName stringByReplacingOccurrencesOfString:@" " withString: @"_"];
+        NSString *firebaseURL = @"https://dazzling-fire-7228.firebaseio.com/";
+        NSString *url = [firebaseURL stringByAppendingString:self.userName];
+        _firebase = [[Firebase alloc] initWithUrl:url];
     }
     
     return _firebase;

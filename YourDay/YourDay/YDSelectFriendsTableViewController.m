@@ -120,7 +120,13 @@
     
     if([segue.identifier isEqualToString:@"SendSnap"])
     {
-        Firebase* nameRef = [[Firebase alloc] initWithUrl:@"https://dazzling-fire-7228.firebaseio.com/"];
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        NSString *userName = self.users[indexPath.row];
+        userName = [userName stringByReplacingOccurrencesOfString:@" " withString: @"_"];
+        NSString *firebaseURL = @"https://dazzling-fire-7228.firebaseio.com/";
+        NSString *url = [firebaseURL stringByAppendingString:userName];
+        
+        Firebase* nameRef = [[Firebase alloc] initWithUrl:url];
         Firebase *listRef = [nameRef childByAutoId];
         if (self.videoData) {
             NSString *videoString = [NSString base64StringFromData:self.videoData length:[self.videoData length]];
