@@ -16,7 +16,7 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <GLKit/GLKit.h>
 
-@interface YDSnapViewController () <UIGestureRecognizerDelegate, PBJVisionDelegate> {
+@interface YDSnapViewController () <UIGestureRecognizerDelegate, PBJVisionDelegate, UIAlertViewDelegate> {
     AVCaptureVideoPreviewLayer *_previewLayer;
     
     ALAssetsLibrary *_assetLibrary;
@@ -84,6 +84,8 @@ NSUInteger timerSeconds = 0;
     self.strobeView.backgroundColor = [UIColor clearColor];
     [self.view addSubview:self.strobeView];
     
+    self.strobeView.hidden = YES;
+    
     // preview and AV layer
     _previewLayer = [[PBJVision sharedInstance] previewLayer];
     _previewLayer.frame = self.previewView.bounds;
@@ -125,6 +127,8 @@ NSUInteger timerSeconds = 0;
     [UIApplication sharedApplication].idleTimerDisabled = YES;
     [[PBJVision sharedInstance] startVideoCapture];
     [_strobeView start];
+    self.strobeView.hidden = NO;
+    self.instructionLabel.hidden = YES;
     
     self.timerLabel.hidden = NO;
     
@@ -146,6 +150,8 @@ NSUInteger timerSeconds = 0;
     [UIApplication sharedApplication].idleTimerDisabled = NO;
     [[PBJVision sharedInstance] endVideoCapture];
     [_strobeView stop];
+    self.strobeView.hidden = YES;
+    self.instructionLabel.hidden = NO;
     
     [self.timer invalidate];
     
@@ -401,6 +407,8 @@ NSUInteger timerSeconds = 0;
     }
     
     [_strobeView stop];
+    self.strobeView.hidden = YES;
+    self.instructionLabel.hidden = NO;
     
     _currentVideo = videoDict;
     _currentPhoto = nil;
@@ -408,16 +416,18 @@ NSUInteger timerSeconds = 0;
     UIAlertView *alert;
     if ([[_currentVideo objectForKey:PBJVisionVideoCapturedDurationKey] integerValue] < 1) {
         alert = [[UIAlertView alloc] initWithTitle: @"Photo Captured!"
-                                           message: @"The photo has been captured. Press Next to send it to your friends"
+                                           message:nil
                                           delegate:self
-                                 cancelButtonTitle:nil
-                                 otherButtonTitles:@"OK", nil];
+                                 cancelButtonTitle:@"Retake"
+                                 otherButtonTitles:@"Send Photo", nil];
+        alert.delegate = self;
     } else {
         alert = [[UIAlertView alloc] initWithTitle: @"Video Captured!"
-                                           message: @"The video has been captured. Press Next to send it to your friends"
+                                           message:nil
                                           delegate:self
-                                 cancelButtonTitle:nil
-                                 otherButtonTitles:@"OK", nil];
+                                 cancelButtonTitle:@"Retake"
+                                 otherButtonTitles:@"Send Video", nil];
+        alert.delegate = self;
     }
     
     [alert show];
@@ -439,6 +449,13 @@ NSUInteger timerSeconds = 0;
     //    NSLog(@"captured video (%f) seconds", vision.capturedVideoSeconds);
 }
 
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
+        
+    } else {
+        [self performSegueWithIdentifier:@"SelectFriendsSegue" sender:self];
+    }
+}
 
 #pragma mark - Navigation
 
@@ -464,9 +481,6 @@ NSUInteger timerSeconds = 0;
         }
     }
 }
-
-
-
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
     if([identifier isEqualToString:@"SelectFriendsSegue"])

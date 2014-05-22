@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Bqn-QM-H1M">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Bqn-QM-H1M">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -209,6 +209,14 @@
                                     <action selector="didPressFlipButton:" destination="dPP-ig-vpO" eventType="touchUpInside" id="bW8-UU-zTY"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tap the button to take a photo or hold the button to record a video" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="254" translatesAutoresizingMaskIntoConstraints="NO" id="bOo-3K-lXC">
+                                <rect key="frame" x="33" y="380" width="254" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.30980383830000002" green="0.30980383830000002" blue="0.30980383830000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SGa-qh-aUk" customClass="PBJFocusView">
                                 <rect key="frame" x="0.0" y="64" width="320" height="412"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -217,22 +225,18 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Snap" id="kaV-FB-y5r">
-                        <barButtonItem key="rightBarButtonItem" title="Next" id="ptO-jz-f6r">
-                            <connections>
-                                <segue destination="sf5-sd-mey" kind="push" identifier="SelectFriendsSegue" id="lQp-ht-la9"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Snap" id="kaV-FB-y5r"/>
                     <connections>
                         <outlet property="captureButton" destination="ulm-il-Ydq" id="gCM-ss-OQ8"/>
                         <outlet property="flipButton" destination="nSu-se-3MU" id="Mb5-7v-Es9"/>
                         <outlet property="focusTapGesterRecognizer" destination="uI8-oV-vEG" id="T6V-9F-8nb"/>
                         <outlet property="focusView" destination="SGa-qh-aUk" id="VXZ-BM-4Y9"/>
+                        <outlet property="instructionLabel" destination="bOo-3K-lXC" id="LQE-Mc-LnG"/>
                         <outlet property="longPressGestureRecognizer" destination="hqD-2c-kmI" id="2lT-Cb-KIM"/>
                         <outlet property="previewView" destination="Ta0-Cz-ZiK" id="YM6-qF-82h"/>
                         <outlet property="tapGestureRecognizer" destination="Ili-Eo-4Jo" id="xwN-cD-rOR"/>
                         <outlet property="timerLabel" destination="4Wx-2E-lPe" id="Bow-57-Cmj"/>
+                        <segue destination="sf5-sd-mey" kind="push" identifier="SelectFriendsSegue" id="Ls9-L7-aHm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O1Y-Jg-fLE" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -20,6 +20,7 @@
 @property (strong, nonatomic) IBOutlet UIView *previewView;
 @property (strong, nonatomic) IBOutlet UILabel *timerLabel;
 @property (strong, nonatomic) IBOutlet PBJFocusView *focusView;
+@property (strong, nonatomic) IBOutlet UILabel *instructionLabel;
 
 @property (strong, nonatomic) IBOutlet UILongPressGestureRecognizer *longPressGestureRecognizer;
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *tapGestureRecognizer;
