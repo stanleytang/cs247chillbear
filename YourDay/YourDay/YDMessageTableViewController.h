@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <XHMessageTableViewController.h>
+#import "XHMessageTableViewController.h"
 
 @interface YDMessageTableViewController : XHMessageTableViewController
 @property (strong, nonatomic) NSString *userName;
