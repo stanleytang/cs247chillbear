@@ -8,10 +8,10 @@
 
 #import "YDMessageTableViewController.h"
 
-#import <XHDisplayTextViewController.h>
-#import <XHDisplayMediaViewController.h>
-#import <XHDisplayLocationViewController.h>
-#import <XHProfileTableViewController.h>
+#import "XHDisplayTextViewController.h"
+#import "XHDisplayMediaViewController.h"
+#import "XHDisplayLocationViewController.h"
+#import "XHProfileTableViewController.h"
 
 #import "NSStrinAdditions.h"
 
