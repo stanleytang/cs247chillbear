@@ -11,6 +11,7 @@
 #import <Firebase/Firebase.h>
 #import "NSStrinAdditions.h"
 #import "YDMessageTableViewController.h"
+#import "MBProgressHUD.h"
 
 @interface YDSelectFriendsTableViewController ()
 
@@ -39,7 +40,36 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    self.users = @[@"Andy Mai", @"Stanley Tang", @"Daniel Noe", @"Peyton Manning", @"Johnny Manziel"];
+    self.users = @[
+                          @{
+                              @"name": @"Andy Mai",
+                              @"lastTalked": @"2 hours ago"
+                              },
+                          @{
+                              @"name": @"Trent Murphy",
+                              @"lastTalked": @"1 day ago"
+                              },
+                          @{
+                              @"name": @"Peyton Manning",
+                              @"lastTalked": @"3 day ago"
+                              },
+                          @{
+                              @"name": @"Daniel Noe",
+                              @"lastTalked": @"5 day ago"
+                              },
+                          @{
+                              @"name": @"Stanley Tang",
+                              @"lastTalked": @"7 days ago"
+                              },
+                          @{
+                              @"name": @"Johnny Manziel",
+                              @"lastTalked": @"3 weeks ago"
+                              },
+                          @{
+                              @"name": @"Mom",
+                              @"lastTalked": @"1 month ago"
+                              }
+                    ];
 }
 
 - (void)didReceiveMemoryWarning
@@ -66,8 +96,9 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SelectFriendsCell" forIndexPath:indexPath];
     
-    cell.textLabel.text = self.users[indexPath.row];
+    cell.textLabel.text = [self.users[indexPath.row] valueForKey:@"name"];
     cell.textLabel.textColor = [UIColor darkGrayColor];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"Last talked: %@", [self.users[indexPath.row] valueForKey:@"lastTalked"]];
     
     return cell;
 }
@@ -123,7 +154,7 @@
     if([segue.identifier isEqualToString:@"SendSnap"])
     {
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-        NSString *userName = self.users[indexPath.row];
+        NSString *userName = [self.users[indexPath.row] valueForKey:@"name"];
         userName = [userName stringByReplacingOccurrencesOfString:@" " withString: @"_"];
         NSString *firebaseURL = @"https://dazzling-fire-7228.firebaseio.com/";
         NSString *url = [firebaseURL stringByAppendingString:userName];
@@ -132,14 +163,14 @@
         Firebase *listRef = [nameRef childByAutoId];
         if (self.videoData) {
             NSString *videoString = [NSString base64StringFromData:self.videoData length:[self.videoData length]];
-            [listRef setValue:[NSDictionary dictionaryWithObjectsAndKeys:@"Andy Mai", @"name", videoString, @"video", nil]];
+            [listRef setValue:[NSDictionary dictionaryWithObjectsAndKeys:userName, @"name", videoString, @"video", nil]];
         } else {
             NSString *imageString = [NSString base64StringFromData:self.photoData length:[self.photoData length]];
-            [listRef setValue:[NSDictionary dictionaryWithObjectsAndKeys:@"Andy Mai", @"name", imageString, @"photo", nil]];
+            [listRef setValue:[NSDictionary dictionaryWithObjectsAndKeys:userName, @"name", imageString, @"photo", nil]];
         }
         
         YDMessageTableViewController *dstVC = (YDMessageTableViewController *)segue.destinationViewController;
-        dstVC.userName = self.users[indexPath.row];
+        dstVC.userName = userName;
     }
 }
 @end

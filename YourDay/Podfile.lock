@@ -2,18 +2,21 @@ PODS:
   - Firebase (1.1.7)
   - JSQMessagesViewController (5.0.0):
     - JSQSystemSoundPlayer
-  - JSQSystemSoundPlayer (1.5.0)
+  - JSQSystemSoundPlayer (1.5.2)
+  - MBProgressHUD (0.8)
   - PBJVision (0.2.1)
 
 DEPENDENCIES:
   - Firebase (~> 1.1.7)
   - JSQMessagesViewController
+  - MBProgressHUD
   - PBJVision
 
 SPEC CHECKSUMS:
   Firebase: 88d2a0f4c0c8f2d65a732bb2f7ec9b9c6e72876f
   JSQMessagesViewController: 833cfacdd1e883b7f117d3a1b465085e9ae1ed8f
-  JSQSystemSoundPlayer: 0e636d5fd51e071fb708a0fec04e3d05175d9d27
+  JSQSystemSoundPlayer: c24914bc96ff5365b5d28b59d7ecffd60d1c5587
+  MBProgressHUD: c356980b0cd097f19acec959b49dca5eb8ec31be
   PBJVision: cf25feb5c6ca44bfc979f46c058605cf76027748
 
 COCOAPODS: 0.32.1
