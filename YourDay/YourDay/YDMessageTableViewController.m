@@ -16,6 +16,7 @@
 #import "NSStrinAdditions.h"
 
 #import <Firebase/Firebase.h>
+#import <MBProgressHUD/MBProgressHUD.h>
 
 @interface YDMessageTableViewController ()
 @property (nonatomic, strong) NSArray *emotionManagers;
@@ -163,11 +164,11 @@ NSUInteger count = 0;
 //    [self.shareMenuView reloadData];
     NSMutableArray *tempMessages = [[NSMutableArray alloc] init];
     
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Loading";
+    
     //Firebase* f = [[Firebase alloc] initWithUrl:@"https://dazzling-fire-7228.firebaseio.com/"];
     [self.firebase observeEventType:FEventTypeChildAdded withBlock:^(FDataSnapshot *snapshot) {
-       // NSMutableArray *tempMessages = [NSMutableArray arrayWithArray:self.messages];
-        //NSMutableArray *reversedMessages = [[NSMutableArray alloc] init];
-        
         @try {
             NSDictionary *value = (NSDictionary *)snapshot.value;
             if ([value objectForKey:@"video"]) {
@@ -196,11 +197,11 @@ NSUInteger count = 0;
         }
         @finally {
             NSLog(@"finally");
+            [hud hide:YES];
+            self.messages = tempMessages;
+            [self.messageTableView reloadData];
             
-                self.messages = tempMessages;
-                [self.messageTableView reloadData];
-                
-                [self scrollToBottomAnimated:NO];
+            [self scrollToBottomAnimated:NO];
         }
     }];
     
