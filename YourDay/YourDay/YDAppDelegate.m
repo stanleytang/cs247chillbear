@@ -56,7 +56,7 @@ static int notificationON = 1;
         notifyAlarm.fireDate = alertTime;
         notifyAlarm.timeZone = [NSTimeZone defaultTimeZone];
         notifyAlarm.repeatInterval = 0;
-        notifyAlarm.alertBody = @"Don't forget to choose a moment to share with Andy!";
+        notifyAlarm.alertBody = @"Andy just poked you! Update him on how was your day";
         [app scheduleLocalNotification:notifyAlarm];
     }
    
