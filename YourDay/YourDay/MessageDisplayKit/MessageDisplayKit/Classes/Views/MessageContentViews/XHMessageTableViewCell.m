@@ -355,23 +355,23 @@ static const CGFloat kXHBubbleMessageViewPadding = 8;
         
         // 2、配置头像
         // avator
-        CGRect avatorButtonFrame;
-        switch (message.bubbleMessageType) {
-            case XHBubbleMessageTypeReceiving:
-                avatorButtonFrame = CGRectMake(kXHAvatorPaddingX, kXHAvatorPaddingY + (self.displayTimestamp ? kXHTimeStampLabelHeight : 0), kXHAvatarImageSize, kXHAvatarImageSize);
-                break;
-            case XHBubbleMessageTypeSending:
-                avatorButtonFrame = CGRectMake(CGRectGetWidth(self.bounds) - kXHAvatarImageSize - kXHAvatorPaddingX, kXHAvatorPaddingY + (self.displayTimestamp ? kXHTimeStampLabelHeight : 0), kXHAvatarImageSize, kXHAvatarImageSize);
-                break;
-            default:
-                break;
-        }
-        
-        UIButton *avatorButton = [[UIButton alloc] initWithFrame:avatorButtonFrame];
-        [avatorButton setImage:[XHMessageAvatorFactory avatarImageNamed:[UIImage imageNamed:@"avator"] messageAvatorType:XHMessageAvatorCircle] forState:UIControlStateNormal];
-        [avatorButton addTarget:self action:@selector(avatorButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-        [self.contentView addSubview:avatorButton];
-        self.avatorButton = avatorButton;
+//        CGRect avatorButtonFrame;
+//        switch (message.bubbleMessageType) {
+//            case XHBubbleMessageTypeReceiving:
+//                avatorButtonFrame = CGRectMake(kXHAvatorPaddingX, kXHAvatorPaddingY + (self.displayTimestamp ? kXHTimeStampLabelHeight : 0), kXHAvatarImageSize, kXHAvatarImageSize);
+//                break;
+//            case XHBubbleMessageTypeSending:
+//                avatorButtonFrame = CGRectMake(CGRectGetWidth(self.bounds) - kXHAvatarImageSize - kXHAvatorPaddingX, kXHAvatorPaddingY + (self.displayTimestamp ? kXHTimeStampLabelHeight : 0), kXHAvatarImageSize, kXHAvatarImageSize);
+//                break;
+//            default:
+//                break;
+//        }
+//        
+//        UIButton *avatorButton = [[UIButton alloc] initWithFrame:avatorButtonFrame];
+//        [avatorButton setImage:[XHMessageAvatorFactory avatarImageNamed:[UIImage imageNamed:@"avator"] messageAvatorType:XHMessageAvatorCircle] forState:UIControlStateNormal];
+//        [avatorButton addTarget:self action:@selector(avatorButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+//        [self.contentView addSubview:avatorButton];
+//        self.avatorButton = avatorButton;
         
         // 3、配置需要显示什么消息内容，比如语音、文字、视频、图片
         if (!_messageBubbleView) {
@@ -383,6 +383,9 @@ static const CGFloat kXHBubbleMessageViewPadding = 8;
                 bubbleX = kXHAvatarImageSize + kXHAvatorPaddingX + kXHAvatorPaddingX;
             else
                 offsetX = kXHAvatarImageSize + kXHAvatorPaddingX + kXHAvatorPaddingX;
+            
+            offsetX = 5;
+            bubbleX = 5;
             
             CGRect frame = CGRectMake(bubbleX,
                                       kXHBubbleMessageViewPadding + (self.displayTimestamp ? (kXHTimeStampLabelHeight + kXHLabelPadding) : kXHLabelPadding),
