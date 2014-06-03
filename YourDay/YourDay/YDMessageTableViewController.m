@@ -161,10 +161,12 @@ NSUInteger count = 0;
 //    
 //    self.shareMenuItems = shareMenuItems;
 //    [self.shareMenuView reloadData];
+    NSMutableArray *tempMessages = [[NSMutableArray alloc] init];
     
     //Firebase* f = [[Firebase alloc] initWithUrl:@"https://dazzling-fire-7228.firebaseio.com/"];
     [self.firebase observeEventType:FEventTypeChildAdded withBlock:^(FDataSnapshot *snapshot) {
-        NSMutableArray *tempMessages = [NSMutableArray arrayWithArray:self.messages];
+       // NSMutableArray *tempMessages = [NSMutableArray arrayWithArray:self.messages];
+        //NSMutableArray *reversedMessages = [[NSMutableArray alloc] init];
         
         @try {
             NSDictionary *value = (NSDictionary *)snapshot.value;
@@ -177,12 +179,15 @@ NSUInteger count = 0;
                 [videoData writeToFile:databasePath atomically:YES];
                 
                 [tempMessages addObject:[[XHMessage alloc] initWithVideoConverPhoto:[UIImage imageNamed:@"play"] videoPath:databasePath videoUrl:nil sender:@"Jack Smith" timestamp:[NSDate date]]];
+                //[tempMessages insertObject:[[XHMessage alloc] initWithVideoConverPhoto:[UIImage imageNamed:@"play"] videoPath:databasePath videoUrl:nil sender:@"Jack Smith" timestamp:[NSDate date]] atIndex:0];
             } else if ([value objectForKey:@"message"]) {
                 [tempMessages addObject:[[XHMessage alloc] initWithText:[value objectForKey:@"message"] sender:@"Andy" timestamp:[NSDate date]]];
+                //[tempMessages insertObject:[[XHMessage alloc] initWithText:[value objectForKey:@"message"] sender:@"Andy" timestamp:[NSDate date]] atIndex:0];
             } else {
                 NSData *photoData = [NSData base64DataFromString:(NSString *)[value objectForKey:@"photo"]];
                 
                 [tempMessages addObject:[[XHMessage alloc] initWithPhoto:[UIImage imageWithData:photoData] thumbnailUrl:nil originPhotoUrl:nil sender:@"Jack Smith" timestamp:[NSDate date]]];
+                //[tempMessages insertObject:[[XHMessage alloc] initWithPhoto:[UIImage imageWithData:photoData] thumbnailUrl:nil originPhotoUrl:nil sender:@"Jack Smith" timestamp:[NSDate date]] atIndex:0];
             }
             
         }

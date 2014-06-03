@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="6Rw-9A-Po5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="6Rw-9A-Po5">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -112,7 +112,6 @@
         <!--Freq Setting View Controller - Change Frequency-->
         <scene sceneID="LtG-r2-GPJ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mLZ-SY-ZJf" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="7Af-YC-H75" customClass="YDFreqSettingViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3cG-fy-FgG"/>
@@ -174,6 +173,7 @@
                         <outlet property="savedLabel" destination="JR1-1f-rOW" id="1mH-h0-blK"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mLZ-SY-ZJf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="222" y="-726"/>
         </scene>
