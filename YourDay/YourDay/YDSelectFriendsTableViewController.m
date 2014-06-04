@@ -42,33 +42,34 @@
     
     self.users = @[
                           @{
+                              @"name": @"Mom",
+                              @"lastTalked": @"1 month ago"
+                              },
+                          @{
                               @"name": @"Andy Mai",
-                              @"lastTalked": @"2 hours ago"
-                              },
-                          @{
-                              @"name": @"Trent Murphy",
-                              @"lastTalked": @"1 day ago"
-                              },
-                          @{
-                              @"name": @"Peyton Manning",
-                              @"lastTalked": @"3 day ago"
-                              },
-                          @{
-                              @"name": @"Daniel Noe",
-                              @"lastTalked": @"5 day ago"
-                              },
-                          @{
-                              @"name": @"Stanley Tang",
-                              @"lastTalked": @"7 days ago"
-                              },
-                          @{
-                              @"name": @"Johnny Manziel",
                               @"lastTalked": @"3 weeks ago"
                               },
                           @{
-                              @"name": @"Mom",
-                              @"lastTalked": @"1 month ago"
+                              @"name": @"Trent Murphy",
+                              @"lastTalked": @"7 days ago"
+                              },
+                          @{
+                              @"name": @"Peyton Manning",
+                              @"lastTalked": @"5 days ago"
+                              },
+                          @{
+                              @"name": @"Daniel Noe",
+                              @"lastTalked": @"3 days ago"
+                              },
+                          @{
+                              @"name": @"Stanley Tang",
+                              @"lastTalked": @"1 day ago"
+                              },
+                          @{
+                              @"name": @"Johnny Manziel",
+                              @"lastTalked": @"2 hours ago"
                               }
+                          
                     ];
 }
 
